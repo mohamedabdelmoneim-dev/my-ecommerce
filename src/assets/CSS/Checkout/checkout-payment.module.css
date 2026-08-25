@@ -1,0 +1,61 @@
+.radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.radio-inputs .radio input {
+    display: none;
+    
+}
+
+.radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0.8rem 0;
+    color: #83898A;
+    transition: all .15s ease-in-out;
+    border: 1px solid #2B2B2B;
+    border-radius: 0.7rem;
+    -webkit-border-radius: 0.7rem;
+    -moz-border-radius: 0.7rem;
+    -ms-border-radius: 0.7rem;
+    -o-border-radius: 0.7rem;
+    font-weight: bold;
+    font-size: 14px;
+}
+.radio-inputs .radio .name:hover {
+    border: 1px solid #434343;
+}
+.radio-inputs .radio input:checked + .name {
+    color: var(--main-color);
+    background-color: #1D0F0C;
+    border: 1px solid var(--main-color);
+    font-weight: 600;
+}
+.credit-card-option input::placeholder {
+    font-size: 14px;
+}
+.credit-card-option input:focus {
+    border: 0 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.credit-card-option .card-number:focus-within {
+    box-shadow: 0 0 0 0.08rem var(--main-color) !important;
+}

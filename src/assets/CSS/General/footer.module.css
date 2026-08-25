@@ -1,0 +1,42 @@
+.footer-copyright a {
+    transition: 0.3s;
+}
+.footer-copyright a:hover {
+    color: #6F7072 !important;
+}
+.footer-email-sub .email input:focus {
+    outline: 1px solid var(--main-color) !important;
+}
+.footer-email-sub .email:focus-within {
+    outline: 1px solid var(--main-color) !important;
+}
+
+@media (max-width: 992px) {
+    .join-community .footer-email-sub {
+        width: 100% !important;
+    }
+    
+}
+
+@media (max-width: 426px) {
+    .join-community .email {
+        width: 100% !important;
+    }
+    .home-subscribe-btn {
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+
+}
+@media (max-width: 321px) {
+    .join-community .email input {
+        width: 80% !important;
+    }
+    .home-subscribe-btn {
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+    .footer-copyright {
+        font-size: 12px !important;
+    }
+}

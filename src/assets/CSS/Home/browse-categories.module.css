@@ -1,0 +1,40 @@
+.shop-by-collection button:hover {
+    transform: translateX(10px);
+}
+.shop-by-collection button:hover a {
+    color: #FFF !important;
+}
+.category {
+    transition: 0.3s !important;
+}
+.cat-overlay{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    transition: 0.3s !important;
+}
+.category::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0.4;
+    transition: 0.3s !important;
+}
+.category:hover::before {
+    display: none;
+}
+.category:hover {
+    transform: translateY(-5px);
+}
+.category .cat-arrow {
+    transition: 0.3s;
+}
+.category:hover .cat-arrow {
+    transform: translateX(5px);
+}

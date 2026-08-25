@@ -1,0 +1,116 @@
+.radio-group {
+    display: flex;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 4px;
+    border-radius: 15px;
+    
+    position: relative;
+    animation: slide-in 0.6s ease-out;
+    width: 80px;
+    height: 40px;
+}
+
+@keyframes slide-in {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.slider {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.15),
+        0 1px 4px rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+.radio-option {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    animation: fade-in 0.5s ease-out backwards;
+    color: #FFF !important;
+    
+}
+
+.radio-option:nth-child(2) { animation-delay: 0.1s; }
+.radio-option:nth-child(3) { animation-delay: 0.2s; }
+
+.radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    border-radius: 15px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #FFF !important;
+}
+
+.radio-option input[type="radio"]:checked + .radio-label {
+    color: #FFF !important;
+}
+
+.radio-label:hover {
+    color: #FFF !important;
+}
+
+.radio-label::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.radio-label:hover::before { opacity: 1; }
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.radio-group:has(#option1:checked) .slider {
+    left: 4px;
+    width: calc(50% - 4px);
+}
+
+.radio-group:has(#option2:checked) .slider {
+    left: calc(50% + 0px);
+    width: calc(50% - 4px);
+}
+
+@keyframes pulse {
+    0%   { box-shadow: 0 3px 12px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.1); }
+    50%  { box-shadow: 0 5px 20px rgba(102,126,234,0.3), 0 2px 8px rgba(0,0,0,0.15); }
+    100% { box-shadow: 0 3px 12px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.1); }
+}
+
+

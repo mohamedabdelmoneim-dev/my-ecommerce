@@ -1,0 +1,29 @@
+.aside-active {
+    color: var(--main-color) !important;
+    background-color: #341914 !important;
+    border: 1px solid var(--main-color) !important;
+}
+.shop-aside-btn:hover:not(a.aside-active) {
+    background-color: #7a777733 !important;
+}
+.shop-aside-btn a:not(.aside-active):hover {
+    color: #FFF !important;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+    background: var(--main-color) !important;
+    cursor: pointer !important;
+}
+.clear-filters:hover {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    background-color: #341914 !important;
+}

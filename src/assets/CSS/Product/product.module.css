@@ -1,0 +1,49 @@
+.product-path:hover {
+    color: #989698 !important;
+}
+.span-outline {
+    outline: 3px solid var(--main-color);
+}
+.product-add-to-cart:hover {
+    background-color: #c72909 !important;
+    box-shadow: rgba(199, 41, 9) 0 0 20px ;
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+}
+.product-buy-now:hover {
+    background-color: #E7E6E7 !important;
+}
+.product-share:hover {
+    background-color: #232323 !important;
+}
+.product-share:hover svg {
+    color: #FFF !important;
+}
+.adv-prod p {
+    margin-bottom: 5px;
+}
+.btn-outline {
+    color: #8A898A !important;
+    transition: 0.3s !important;
+    -webkit-transition: 0.3s !important;
+    -moz-transition: 0.3s !important;
+    -ms-transition: 0.3s !important;
+    -o-transition: 0.3s !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    font-size: 14px !important;
+}
+.btn-outline, 
+.btn-check:checked+.btn {
+    border: none;
+}
+.btn-check:checked+.btn {
+    background-color: var(--main-color);
+    color: #FFF !important;
+}
+.btn-outline:hover {
+    color: #FFF !important;
+}

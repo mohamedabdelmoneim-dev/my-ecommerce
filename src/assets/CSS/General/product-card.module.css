@@ -1,0 +1,30 @@
+.limited-product {
+    background-color: #AD46FF;
+}
+.blue-status {
+    background-color: #2B7FFF;
+}
+.orange-status {
+    background-color: var(--main-color);
+}
+.card-heart:hover {
+    transform: scale(1.1);
+}
+.card-heart:not(.wishlisted):hover {
+    background-color: #717271 !important;
+}
+.card-eye:hover {
+    background-color: #717271 !important;
+}
+.disapled-quick-add {
+    opacity: 0;
+    transition: 0.3s;
+}
+.product-card:hover .disapled-quick-add {
+    opacity: 1;
+    transform: translateY(-15px);
+}
+.disapled-quick-add:hover button {
+    background-color: #ec320d !important;
+    transform: scale(1.05);
+}

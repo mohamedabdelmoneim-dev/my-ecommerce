@@ -1,0 +1,25 @@
+.search-bar {
+    animation: showBar 0.25s ease forwards;
+}
+input::placeholder {
+    color: #585758;
+}
+.bar:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: 0 0 0 0 transparent !important;
+}
+@keyframes showBar {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.search-bar {
+    animation: showBar 0.25s ease forwards;
+}

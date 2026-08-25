@@ -1,0 +1,29 @@
+.address-btn:not(.add-new) {
+    color: var(--text-color) !important;
+    font-size: 13px;
+    padding: 0 10px 0 0;
+    border: none;
+    transition: 0.3s;
+}
+.add-new {
+    transition: 0.3s;
+}
+.add-new:hover {
+    background-color: #E63B18 !important;
+}
+.edit-btn:hover {
+    color: #FFF !important;
+}
+.delete-btn:hover {
+    color: #D96467 !important;
+}
+.set-default-btn:hover {
+    color: var(--main-color) !important;
+}
+@media (max-width: 576px) {
+    .address-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}

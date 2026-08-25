@@ -1,0 +1,12 @@
+@media (max-width: 575px) {
+    .limited-offer .container > div {
+        width: 90% !important;
+        justify-self: center;
+        align-self: center;
+    }
+}
+
+.limited-sale:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0px 20px 20px rgba(0, 0, 0, 0.3);
+}

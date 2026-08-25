@@ -1,0 +1,26 @@
+.social-media li {
+    transition: 0.4s;
+    cursor: pointer;
+}
+.social-media li:hover {
+    transform-origin: bottom center;
+    transform: scale(1.1);
+}
+.social-media li:hover a svg {
+    color: #FFF !important;
+}
+.footer-categories-links {
+    background-color: transparent !important;
+}
+.footer-categories-links a {
+    transition: 0.3s !important;
+}
+.footer-categories-links a:hover {
+    color: #FFF !important;
+}
+
+@media(max-width: 334px) {
+    .footer-categories-links a {
+        font-size: 12px !important;
+    }
+}

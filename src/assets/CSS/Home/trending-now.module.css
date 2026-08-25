@@ -1,0 +1,18 @@
+.trending-now .trending-btn {
+    transition: 0.3s;
+    background: linear-gradient(to right, #1F2020, #39332B);
+}
+.trending-now .trending-btn:hover {
+    transform: scale(1.04);
+    background: linear-gradient(to right, #332f2a, #6d6a67);
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    -o-transform: scale(1.04);
+}
+.featured-products button:hover {
+    transform: translateX(10px);
+}
+.featured-products button:hover a {
+    color: #FFF !important;
+}

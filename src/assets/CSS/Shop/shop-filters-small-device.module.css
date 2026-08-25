@@ -1,0 +1,73 @@
+.shop-filters-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.shop-filters-overlay.closing {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.shop-filters-small-device {
+    overflow-y: auto;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(110%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(110%);
+    }
+}
+
+.shop-filters-small-device {
+    overflow-y: auto;
+}
+.search-bar-small-container:focus-within {
+    outline: 2px solid var(--main-color);
+}
+.search-bar-small::placeholder {
+    color: #615E61 !important;
+    font-size: 15px;
+}
+.search-bar-small:focus {
+    box-shadow: 0 0 0 0 !important;
+}
+.search-label {
+    font-size: 0.9rem !important;
+}
+.apply-filters-btn {
+    position: relative;
+    z-index: 1;
+    color: #FFF !important;
+    padding: 10px 0;
+}
+.apply-filters-btn::before {
+    display: none;
+}
+

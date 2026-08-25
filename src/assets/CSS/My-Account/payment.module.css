@@ -1,0 +1,22 @@
+.typeof-card {
+    color: #ffffff8e;
+}
+.edit-btn:hover {
+    color: #FFF !important;
+}
+.remove-btn:hover {
+    color: #ccc !important;
+}
+.add-new {
+    transition: 0.3s;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    font-size: 14px;
+}
+.add-new:hover {
+    background-color: #E63B18 !important;
+}

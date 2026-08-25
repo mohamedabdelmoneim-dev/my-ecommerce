@@ -1,0 +1,24 @@
+.adv-card:hover {
+    border: 1px solid #cccccc36 !important;
+}
+.adv-card:hover .adv-icon {
+    background-color: #ff4a263f !important;
+}
+.adv-card {
+    width: calc(25% - 15px) !important;
+
+}
+
+@media (max-width: 960px) {
+    .some-advantage .container > div {
+        gap: 20px;
+    }
+    .adv-card {
+        width: calc(50% - 15px) !important;
+    }
+}
+@media (max-width: 426px) {
+    .adv-card {
+        width: 100% !important;
+    }
+}

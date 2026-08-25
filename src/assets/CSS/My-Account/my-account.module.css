@@ -1,0 +1,107 @@
+.account-content-container {
+    max-width: 90% !important;
+    padding: 0 15px 0 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 1200px) {
+    .account-content-container {
+        max-width: 90% !important;
+        padding: 0;
+    }
+}
+@media (max-width: 1199px) {
+    .account-content-container {
+        max-width: 100% !important;
+        padding: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+.home-page:hover {
+    color: #B1AEB1 !important;
+}
+.progress-div {
+    width: 100%;
+    background-color: #333;
+    border-radius: 10px;
+    height: 7px;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+progress {
+    position: absolute;
+    appearance: none;
+    height: 7px;
+    width: 100%;
+    animation: bar 1.5s normal !important;
+    -webkit-animation: bar 1.5s normal !important;
+}
+progress::-webkit-progress-bar {
+    background-color: #333;
+    border-radius: 10px;
+}
+progress::-webkit-progress-value {
+    background: linear-gradient(135deg, #FDB300, #E47600);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+@keyframes bar {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+.account-list-group {
+    overflow: hidden !important;
+    border-radius: 20px !important;
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    -ms-border-radius: 20px !important;
+    -o-border-radius: 20px !important;
+}
+.list-group-item-account {
+    background-color: #141414 !important;
+    color: #A1A1A1 !important;
+    border: 1px solid #242424 !important;
+    padding: 0;
+}
+.list-group-item-account a,
+.sign-out {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px !important;
+    transition: 0.3s;
+}
+.sign-out {
+    color: #AF4C4E !important;
+    background-color: #141414 !important;
+}
+.list-group-item-account a:hover {
+    background-color: #302f2f4b !important;
+    color: #FFF !important;
+}
+.sign-out:hover {
+    color: #ff5a41 !important;
+    background-color: #221919a9 !important;
+}
+.list-group-item-account a.active {
+    color: var(--main-color) !important;
+    background-color: #2C1916 !important;
+}
+.view-order {
+    transition: 0.3s;
+}
+.view-order:hover {
+    color: #F86B43 !important;
+
+}
+@media (max-width: 1400px) {
+    .account-profile-email {
+        font-size: 10.5px !important;
+    }
+}
