@@ -76,7 +76,7 @@ function Wishlist ({ id }) {
                 <div className="d-flex justify-content-xl-end justify-content-md-between justify-content-center gap-xl-4 gap-3 w-100 offset-xl-1 ">
                     {
                         items == 0
-                        ? <div className="text-white position-absolute top-50" style={{ transition: "0.3s", transform: "translateX(35%)" }}>No Items Yet...</div>
+                        ? <div className="text-white w-100 text-center" style={{ transition: "0.3s" }}>No Items Yet...</div>
                         : <div className={`w-100 row offset-lg-0 offset-md-1 offset-xs-1 justify-content-md-start justify-content-center gap-4 row-cols-xl-4 row-cols-md-4 row-cols-sm-1 ${wishlistStyles["animate-section"]} gap-1`}>
                             {
                                 items.map(product => {
