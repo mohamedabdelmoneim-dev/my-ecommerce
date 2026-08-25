@@ -52,7 +52,7 @@
     background-color: #AD46FF !important;
 }
 .blue-status {
-    background-color: #2B7FFF !;
+    background-color: #2B7FFF !important;
 }
 .orange-status {
     background-color: var(--main-color) !important;
