@@ -91,7 +91,7 @@ function Account () {
                                 </div>
                                 <div>
                                     <ul className={`list-group ${myAccountStyles["account-list-group"]}`}>
-                                        <li className="list-group-item list-group-item-account">
+                                        <li className={`list-group-item ${myAccountStyles["list-group-item-account"]} ${myAccountStyles["account-list-group-header"]}`}>
                                             <NavLink to="/account/orders" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <BsBoxSeam />
@@ -100,7 +100,7 @@ function Account () {
                                                 <MdOutlineKeyboardArrowRight />
                                             </NavLink>
                                         </li>
-                                        <li className="list-group-item list-group-item-account ">
+                                        <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
                                             <NavLink to="/account/wishlist" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <FaRegHeart />
@@ -109,7 +109,7 @@ function Account () {
                                                 <MdOutlineKeyboardArrowRight />
                                             </NavLink>
                                         </li>
-                                        <li className="list-group-item list-group-item-account ">
+                                        <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
                                             <NavLink to="/account/address" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <SlLocationPin />
@@ -118,7 +118,7 @@ function Account () {
                                                 <MdOutlineKeyboardArrowRight />
                                             </NavLink>
                                         </li>
-                                        <li className="list-group-item list-group-item-account ">
+                                        <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
                                             <NavLink to="/account/payment" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <MdPayment />
@@ -127,7 +127,7 @@ function Account () {
                                                 <MdOutlineKeyboardArrowRight />
                                             </NavLink>
                                         </li>
-                                        <li className="list-group-item list-group-item-account ">
+                                        <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
                                             <NavLink to="/account/settings" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <IoSettingsOutline />
@@ -136,7 +136,7 @@ function Account () {
                                                 <MdOutlineKeyboardArrowRight />
                                             </NavLink>
                                         </li>
-                                        <li className={`list-group-item list-group-item-account ${myAccountStyles["sign-out"]}`} onClick={handleSignOut} style={{ cursor: "pointer" }}>
+                                        <li className={`list-group-item ${myAccountStyles["list-group-item-account"]} ${myAccountStyles["sign-out"]}`} onClick={handleSignOut} style={{ cursor: "pointer" }}>
                                             <PiSignOutBold />
                                             Sign Out
                                         </li>
