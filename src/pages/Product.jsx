@@ -14,7 +14,7 @@ import { FaStarHalfStroke, FaCheck } from "react-icons/fa6";
 import { CartContext } from "../contexts/CartContextProvider";
 import { FaRegHeart, FaStar, FaRegStar, FaHeart } from "react-icons/fa";
 
-import styles from "../assets/CSS/Product/product.module.css";
+import productStyles from "../assets/CSS/Product/product.module.css";
 import '../assets/CSS/Product/swiper.css';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -156,15 +156,15 @@ function Product () {
                     <div style={{ paddingTop: "20px" }}>
                         <ul className="nav mb-3" style={{ fontSize: "13px" }}>
                             <li className="nav-item" style={{ color: "#4D5556" }}>
-                                <Link to="/home" className={"home-page " + styles["product-path"]} style={{ color: "#4D5556", transition: "0.3s" }}>Home </Link>
+                                <Link to="/home" className={"home-page " + productStyles["product-path"]} style={{ color: "#4D5556", transition: "0.3s" }}>Home </Link>
                                 <span className="mx-2">/</span>
                             </li>
                             <li className="nav-item" style={{ color: "#4D5556" }}>
-                                <Link className={styles["product-path"]} to="/shop" style={{ color: "#4D5556", transition: "0.3s" }}>Shop</Link>
+                                <Link className={productStyles["product-path"]} to="/shop" style={{ color: "#4D5556", transition: "0.3s" }}>Shop</Link>
                                 <span className="mx-2">/</span>
                             </li>
                             <li className="nav-item" style={{ color: "#4D5556" }}>
-                                <Link className={styles["product-path"]} to={`/shop/${product?.category}`} style={{ color: "#4D5556", transition: "0.3s" }}>{product?.category}</Link>
+                                <Link className={productStyles["product-path"]} to={`/shop/${product?.category}`} style={{ color: "#4D5556", transition: "0.3s" }}>{product?.category}</Link>
                                 <span className="mx-2">/</span>
                             </li>
                             <li className="nav-item" style={{ color: "#B1AEB1" }}>
@@ -196,7 +196,7 @@ function Product () {
                                                 <div className="position-relative ms-md-0 ms-3">
                                                     <img src={prod} style={{ backgroundColor: "#FFF", borderRadius: "15px", width: "100%", maxWidth: "39.8125rem", height: "auto" }} />
                                                     <div className="position-absolute d-flex flex-column justify-content-evenly gap-1" style={{ top: "10px", left: "0.7rem" }}>
-                                                        <p style={{ borderRadius: "10px", color: "white", width: "fit-content", padding: "5px 10px", fontSize: "0.8rem", fontWeight: 700, marginBottom: 0 }} className={randomStatus == "Limited" ? "limited-product" : randomStatus == "Trending" || randomStatus == "New" ? "blue-status" : "orange-status"}>{randomStatus}</p>
+                                                        <p style={{ borderRadius: "10px", color: "white", width: "fit-content", padding: "5px 10px", fontSize: "0.8rem", fontWeight: 700, marginBottom: 0 }} className={randomStatus == "Limited" ? `${productStyles["limited-product"]}` : randomStatus == "Trending" || randomStatus == "New" ? `${productStyles["blue-status"]}` : `${productStyles["orange-status"]}`}>{randomStatus}</p>
                                                         <p className="py-1 px-2" style={{ borderRadius: "10px", color: "white", backgroundColor: "#18CD60", width: "fit-content", fontSize: "0.8rem", fontWeight: 700 }}>-{product.discountPercentage}%</p>
                                                     </div>
                                                     <div className="position-absolute d-flex flex-column gap-2" style={{ top: "10px", right: "1.3rem" }}>
@@ -235,13 +235,13 @@ function Product () {
                                 <div className="d-flex flex-column">
                                     <p className="text-white" style={{ fontSize: "14px" }}>Color</p>
                                     <div className="d-flex align-items-center gap-2 mb-5">
-                                        <span className={`color-span d-flex justify-content-center align-items-center ${spanColor === "#C9A96E" ? styles["span-outline"] : "" }`} onClick={() => {setSpanColor("#C9A96E");}} style={{ backgroundColor: "#C9A96E", width: "35px", height: "35px", borderRadius: "50%", cursor: "pointer" }}>
+                                        <span className={`color-span d-flex justify-content-center align-items-center ${spanColor === "#C9A96E" ? productStyles["span-outline"] : "" }`} onClick={() => {setSpanColor("#C9A96E");}} style={{ backgroundColor: "#C9A96E", width: "35px", height: "35px", borderRadius: "50%", cursor: "pointer" }}>
                                                 {spanColor === "#C9A96E" && <div className="span-overlay"><FaCheck style={{ color: "#FFF" }} /></div>}
                                         </span>
-                                        <span className={`color-span d-flex justify-content-center align-items-center ${spanColor === "#1A1A1A" ? styles["span-outline"] : "" }`} onClick={() => {setSpanColor("#1A1A1A");}} style={{ backgroundColor: "#1A1A1A", width: "35px", height: "35px", borderRadius: "50%", cursor: "pointer" }}>
+                                        <span className={`color-span d-flex justify-content-center align-items-center ${spanColor === "#1A1A1A" ? productStyles["span-outline"] : "" }`} onClick={() => {setSpanColor("#1A1A1A");}} style={{ backgroundColor: "#1A1A1A", width: "35px", height: "35px", borderRadius: "50%", cursor: "pointer" }}>
                                                 {spanColor === "#1A1A1A" && <div className="span-overlay"><FaCheck style={{ color: "#FFF" }} /></div>}
                                         </span>
-                                        <span className={`color-span d-flex justify-content-center align-items-center ${spanColor === "#C0C0C0" ? styles["span-outline"] : "" }`} onClick={() => {setSpanColor("#C0C0C0");}} style={{ backgroundColor: "#C0C0C0", width: "35px", height: "35px", borderRadius: "50%", cursor: "pointer" }}>
+                                        <span className={`color-span d-flex justify-content-center align-items-center ${spanColor === "#C0C0C0" ? productStyles["span-outline"] : "" }`} onClick={() => {setSpanColor("#C0C0C0");}} style={{ backgroundColor: "#C0C0C0", width: "35px", height: "35px", borderRadius: "50%", cursor: "pointer" }}>
                                                 {spanColor === "#C0C0C0" && <div className="span-overlay"><FaCheck style={{ color: "#FFF" }} /></div>}
                                         </span>
                                     </div>
@@ -259,23 +259,23 @@ function Product () {
                             </div>
                             <div className="d-flex align-items-center gap-3 mb-4">
                                 {
-                                    addedToCart ?  <button className={`${styles["product-add-to-cart"]} d-flex justify-content-center align-items-center gap-2`} style={{ backgroundColor: "#00C950", color: "#FFF", textAlign: "canter", width: "60%", height: "50px", borderRadius: "15px", fontWeight: "bold", transition: "0.3s" }}>
+                                    addedToCart ?  <button className={`${productStyles["product-add-to-cart"]} d-flex justify-content-center align-items-center gap-2`} style={{ backgroundColor: "#00C950", color: "#FFF", textAlign: "canter", width: "60%", height: "50px", borderRadius: "15px", fontWeight: "bold", transition: "0.3s" }}>
                                     <FaCheck />Added to Cart
                                     {showAsideCart && <CartAside onClose={() => setShowAsideCart(false)} />}
-                                </button> : <button onClick={() => {handleAddToCart(); setShowAsideCart(true) }} className={`${styles["product-add-to-cart"]} d-flex justify-content-center align-items-center gap-2`} style={{ backgroundColor: "var(--main-color)", color: "#FFF", textAlign: "canter", width: "60%", height: "50px", borderRadius: "15px", fontWeight: "bold", transition: "0.3s" }}>
+                                </button> : <button onClick={() => {handleAddToCart(); setShowAsideCart(true) }} className={`${productStyles["product-add-to-cart"]} d-flex justify-content-center align-items-center gap-2`} style={{ backgroundColor: "var(--main-color)", color: "#FFF", textAlign: "canter", width: "60%", height: "50px", borderRadius: "15px", fontWeight: "bold", transition: "0.3s" }}>
                                     <LuShoppingBag />Add to Cart
                                     {showAsideCart && <CartAside onClose={() => setShowAsideCart(false)} />}
                                 </button>
                                 }
                                 
-                                <button onClick={() => navigate('/checkout')} className={`${styles["product-buy-now"]} d-flex align-items-center justify-content-center gap-1 px-4`} style={{ backgroundColor: "#FFF", borderRadius: "15px", color: "#000", fontWeight: "bold", fontSize: "17px", height: "50px", transition: "0.3s" }}>
+                                <button onClick={() => navigate('/checkout')} className={`${productStyles["product-buy-now"]} d-flex align-items-center justify-content-center gap-1 px-4`} style={{ backgroundColor: "#FFF", borderRadius: "15px", color: "#000", fontWeight: "bold", fontSize: "17px", height: "50px", transition: "0.3s" }}>
                                     <HiOutlineLightningBolt style={{ color: "var(--main-color)", fill: "var(--main-color)", fontSize: "1.5rem" }} /> Buy Now
                                 </button>
-                                <button className={styles["product-share"]} style={{ borderRadius: "15px", padding: "15px 20px", backgroundColor: "#181818", border: "1px solid #2F2F2F", transition: "0.3s" }}>
+                                <button className={productStyles["product-share"]} style={{ borderRadius: "15px", padding: "15px 20px", backgroundColor: "#181818", border: "1px solid #2F2F2F", transition: "0.3s" }}>
                                     <FiShare2 style={{ fontSize: "1.2rem", color: "#979797" }}/>
                                 </button>
                             </div>
-                            <div className={`d-flex align-items-center justify-content-around ${styles["adv-prod"]} p-3 mb-4`} style={{ backgroundColor: "#141414", borderRadius: "15px", border: "1px solid #212121" }}>
+                            <div className={`d-flex align-items-center justify-content-around ${productStyles["adv-prod"]} p-3 mb-4`} style={{ backgroundColor: "#141414", borderRadius: "15px", border: "1px solid #212121" }}>
                                 <div className="d-flex flex-column align-items-center justify-content-center">
                                     <BsTruck className="mb-1" style={{ color: "var(--main-color)", fontSize: "1.35rem" }} />
                                     <p className="text-white" style={{ fontSize: "12.5px" }}>Free Delivery</p>
@@ -295,13 +295,13 @@ function Product () {
                             <div className="d-flex flex-column ">
                                 <div className="btn-group mb-4" role="group" aria-label="Basic radio toggle button group" style={{ backgroundColor: "#141414" }}>
                                     <input onClick={() => setProdDetails("description")} type="radio" className="btn-check" name="btnradio" id="btnradio1" autocomplete="off" defaultChecked style={{ borderRadius: "10px" }} />
-                                    <label className={"btn " + styles["btn-outline"]} htmlFor="btnradio1" style={{ borderRadius: "10px", fontWeight: 700 }}>Description</label>
+                                    <label className={"btn " + productStyles["btn-outline"]} htmlFor="btnradio1" style={{ borderRadius: "10px", fontWeight: 700 }}>Description</label>
 
                                     <input onClick={() => setProdDetails("specs")} type="radio" className="btn-check" name="btnradio" id="btnradio2" autocomplete="off" style={{ borderRadius: "10px" }} />
-                                    <label className={"btn " + styles["btn-outline"]} htmlFor="btnradio2" style={{ borderRadius: "10px", fontWeight: 700 }}>Specs</label>
+                                    <label className={"btn " + productStyles["btn-outline"]} htmlFor="btnradio2" style={{ borderRadius: "10px", fontWeight: 700 }}>Specs</label>
 
                                     <input onClick={() => setProdDetails("reviews")} type="radio" className="btn-check" name="btnradio" id="btnradio3" autocomplete="off" style={{ borderRadius: "10px" }} />
-                                    <label className={"btn " + styles["btn-outline"]} htmlFor="btnradio3" style={{ borderRadius: "10px", fontWeight: 700 }}>Reviews</label>
+                                    <label className={"btn " + productStyles["btn-outline"]} htmlFor="btnradio3" style={{ borderRadius: "10px", fontWeight: 700 }}>Reviews</label>
                                 </div>
 
                                 <div className="animate-section">

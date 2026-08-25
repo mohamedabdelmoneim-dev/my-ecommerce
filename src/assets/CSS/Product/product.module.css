@@ -47,3 +47,13 @@
 .btn-outline:hover {
     color: #FFF !important;
 }
+
+.limited-product {
+    background-color: #AD46FF !important;
+}
+.blue-status {
+    background-color: #2B7FFF !;
+}
+.orange-status {
+    background-color: var(--main-color) !important;
+}
