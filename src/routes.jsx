@@ -41,6 +41,8 @@ const routes = createBrowserRouter([{
         },
         { path: '/confirm-order', element: <ConfirmOrder /> },
     ],
-},]);
+},], {
+    basename: "/my-ecommerce",
+});
 
 export default routes;

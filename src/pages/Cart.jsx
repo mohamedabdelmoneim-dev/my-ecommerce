@@ -9,7 +9,8 @@ import { useContext } from "react";
 import { FiTag } from "react-icons/fi";
 import { IoShieldOutline } from "react-icons/io5";
 import { LuPackage, LuRefreshCw, LuShoppingBag } from "react-icons/lu";
-import { FaRegTrashAlt, FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
 import cartStyles from "../assets/CSS/Cart/cart.module.css";
 
