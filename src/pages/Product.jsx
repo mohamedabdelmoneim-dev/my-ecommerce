@@ -2,7 +2,7 @@ import ProductsList from "../components/ProductsList";
 import CartAside from "../components/Cart/CartAside/CartAside";
 import ProductsContext from "../contexts/ProductsContext";
 import LocalStorageContext from "../contexts/LocalstorageContext";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 
@@ -30,14 +30,14 @@ import { Navigation, EffectFade, Pagination } from 'swiper/modules';
 
 
 function Product () {
-    const { state } = useLocation();
+    const { id } = useParams();
     const { products } = useContext(ProductsContext);
     if (!products) return <div className="d-flex justify-content-center align-items-center w-100">
         <div className="spinner-border" style={{ color: "var(--main-color)" }} role="status">
             <span className="visually-hidden">Loading...</span>
         </div>
     </div>;
-    const product = products?.products.find(prod => prod.id === state?.id);
+    const product = products?.products.find(prod => prod.id === Number(id));
     const productId = product?.id;
     const cardHeart = useRef(null);
     const [IsWishlist, setIsWishList] = useState( !!localStorage.getItem(`product_card${productId}`));
@@ -146,8 +146,6 @@ function Product () {
         return () => observer.disconnect();
     },[prodDetails]);
     const unique = products.products.filter(prod => prod.category == product?.category && prod.id != product.id);
-    console.log(unique)
-    console.log(state)
     const navigate = useNavigate();
     return (
         <>

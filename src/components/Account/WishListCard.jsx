@@ -14,7 +14,7 @@ function WishListCard( { items }) {
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                         <p className="mb-0" style={{ fontSize: "13px" }}>{items.price}</p>
-                        <button onClick={() => navigate('/product', { state: { id: items.id } })} style={{ color: "var(--main-color)", border: "none", backgroundColor: "transparent" }}>view</button>
+                        <button onClick={() => navigate(`/product/${items.id}`)} style={{ color: "var(--main-color)", border: "none", backgroundColor: "transparent" }}>view</button>
                     </div>
                 </div>
             </div>
