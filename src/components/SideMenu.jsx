@@ -95,7 +95,7 @@ function SideMenu({ onClose }) {
                     </li>
                     <li className="nav-item position-relative">
                         <div className={`${sideMenuStyles["header-icon-counter"]} ${cart.length !== 0 ? "d-flex" : "d-none"}`}><p className="fw-bold mb-0" style={{ fontSize: "12px", color: "#FFF" }}>{cart.length > 0 ? cart.reduce((sum, item) => sum + item.quantity, 0) > 9 ? "9+" : cart.reduce((sum, item) => sum + item.quantity, 0) : ""}</p></div>
-                        <div className={`nav-link p-3 ${sideMenuStyles["cart-link"]} d-flex gap-3 align-items-center`} style={{ cursor: "pointer", color: "#CECECE", fontSize: "25px", fontWeight: "bold" }} onClick={() => { setShowAsideCart(true); handleClose(); }}><LuShoppingBag style={{ color: "#B5B5B5" }} /> Cart</div>
+                        <div className={`nav-link p-3 ${sideMenuStyles["cart-link"]} d-flex gap-3 align-items-center`} style={{ cursor: "pointer", color: "#CECECE", fontSize: "25px", fontWeight: "bold" }} onClick={() => { setShowAsideCart(true); }}><LuShoppingBag style={{ color: "#B5B5B5" }} /> Cart</div>
                         {showAsideCart && <CartAside onClose={() => setShowAsideCart(false)} />}
                     </li>
                 </ul>

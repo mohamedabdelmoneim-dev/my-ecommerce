@@ -92,7 +92,7 @@ function Account () {
                                 <div>
                                     <ul className={`list-group ${myAccountStyles["account-list-group"]}`}>
                                         <li className={`list-group-item ${myAccountStyles["list-group-item-account"]} ${myAccountStyles["account-list-group-header"]}`}>
-                                            <NavLink to="/account/orders" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
+                                            <NavLink to="/account/orders" className={({ isActive }) => `nav-link ${isActive ? `${myAccountStyles["active"]} ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <BsBoxSeam />
                                                     Orders
@@ -101,7 +101,7 @@ function Account () {
                                             </NavLink>
                                         </li>
                                         <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
-                                            <NavLink to="/account/wishlist" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
+                                            <NavLink to="/account/wishlist" className={({ isActive }) => `nav-link ${isActive ? `${myAccountStyles["active"]} ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <FaRegHeart />
                                                     Wishlist
@@ -110,7 +110,7 @@ function Account () {
                                             </NavLink>
                                         </li>
                                         <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
-                                            <NavLink to="/account/address" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
+                                            <NavLink to="/account/address" className={({ isActive }) => `nav-link ${isActive ? `${myAccountStyles["active"]} ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <SlLocationPin />
                                                     Address
@@ -119,7 +119,7 @@ function Account () {
                                             </NavLink>
                                         </li>
                                         <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
-                                            <NavLink to="/account/payment" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
+                                            <NavLink to="/account/payment" className={({ isActive }) => `nav-link ${isActive ? `${myAccountStyles["active"]} ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <MdPayment />
                                                     Payment
@@ -128,7 +128,7 @@ function Account () {
                                             </NavLink>
                                         </li>
                                         <li className={`list-group-item ${myAccountStyles["list-group-item-account"]}`}>
-                                            <NavLink to="/account/settings" className={({ isActive }) => `nav-link ${isActive ? `active ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
+                                            <NavLink to="/account/settings" className={({ isActive }) => `nav-link ${isActive ? `${myAccountStyles["active"]} ${myAccountStyles["text-fcs"]}` : ""} d-flex justify-content-between align-items-center`}>
                                                 <div className="d-flex gap-3 align-items-center">
                                                     <IoSettingsOutline />
                                                     Settings
