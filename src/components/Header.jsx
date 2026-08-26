@@ -69,7 +69,7 @@ function Header () {
     
     return (
         <>
-            <header className="d-flex between align-items-center mb-5" style={ { height: '64px' } }>
+            <header className="d-flex between align-items-center mb-5" style={ { height: '64px', maxWidth: "100%" } }>
                 <div className="position-relative container d-flex justify-content-between align-items-center p-0">
                     
                     <div className={headerStyles["logo"]}>
@@ -81,7 +81,7 @@ function Header () {
                                 {
                                     navLinks.map(item => {
                                         return(
-                                            <li className="nav-item">
+                                            <li className="nav-item" key={item.title}>
                                                 {
                                                     item.title !== "Collections" ? <NavLink className={`nav-link ${location.pathname === "/" && item.title == "Home" ? "active" : location.pathname === item.link ? "active" : ""}`} aria-current="page" to={item.link} style={{ fontSize: "13px" }}>{item.title}</NavLink>
                                                     : <>
@@ -106,7 +106,7 @@ function Header () {
                                         {
                                             unique.slice(0).map(prod => {{
                                                 return (prod + 1).category !== prod.category
-                                                ? <li>
+                                                ? <li key={prod.category}>
                                                     <Link className="dropdown-item w-100" to={`/shop/${prod.category}`}>{ prod.category }</Link>
                                                 </li>
                                                 : "";

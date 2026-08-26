@@ -21,4 +21,7 @@
     .adv-card {
         width: 100% !important;
     }
+    .advantages {
+        gap: 10px !important;
+    }
 }

@@ -10,7 +10,7 @@
 .swiper-slide img {
   display: block;
 
-  object-fit: cover;
+    object-fit: cover;
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
@@ -60,14 +60,14 @@
 }
 
 .swiper-button-next {
-  right: 1rem !important;
+  right: 1.7rem !important;
 }
 @media (max-width: 1399px) {
   .swiper-button-next {
     right: 0.3rem !important;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .swiper-button-prev,
   .swiper-button-next {
     width: 1.75rem !important;
@@ -76,4 +76,29 @@
   .swiper-button-prev {
     left: 1.3rem !important;
   }
+}
+
+@media (max-width: 575px) {
+    .product-image {
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .product-badge {
+        top: 1rem !important;
+        left: 2rem !important;
+    }
+    .product-heart {
+        top: 1rem !important;
+        right: 2rem !important;
+    }
+    .swiper-button-prev {
+      left: 2rem !important;
+    }
+    .swiper-button-next {
+      right: 2rem !important;
+    }
+    .other-images img {
+      width: 85px !important;
+    }
 }

@@ -20,7 +20,9 @@ function SearchBarPopup({ onClose, handleCloseOnSideMenu }) {
             if (e.key === "Enter") {
                 setSearch(e.target.value);
                 onClose();
-                navigate('/shop');
+                if (searchBar.trim() !== "") {
+                    navigate("/shop");
+                }
                 handleCloseOnSideMenu();
             }
         }
@@ -34,13 +36,13 @@ function SearchBarPopup({ onClose, handleCloseOnSideMenu }) {
                 onClick={() => {setShowSearchBar(false)}}
                 
                 >
-                <div onClick={e => e.stopPropagation()} style={{ width: "45%", backgroundColor: "#1a1a1a", borderRadius: "15px", border: "1px solid var(--main-color)", padding: "15px 20px" }}>
+                <div className={searchBarPopupStyles["search-bar-box"]} onClick={e => e.stopPropagation()} style={{ width: "45%", backgroundColor: "#1a1a1a", borderRadius: "15px", border: "1px solid var(--main-color)", padding: "15px 20px" }}>
                     <div className="d-flex align-items-center gap-3">
                         <FiSearch style={{ color: "#767676" }} />
                         <input autoFocus type="search" placeholder="Search products, categories..." onChange={(e) => {setSearchBar(e.target.value)}} className={`w-100 ${searchBarPopupStyles["bar"]}`} style={{ background: "none", border: "none", color: "#FFF" }} />
                         <IoMdClose style={{ color: "#FFF", cursor: "pointer" }} onClick={() => {setShowSearchBar(false)}} />
                     </div>
-                    <p style={{ color: "#767676", fontSize: "12px", marginTop: "10px", marginBottom: 0 }}>
+                    <p className={searchBarPopupStyles["keyboard-hint"]} style={{ color: "#767676", fontSize: "12px", marginTop: "10px", marginBottom: 0 }}>
                         Press <kbd>Enter</kbd> to search or <kbd>Esc</kbd> to close
                     </p>
                 </div>

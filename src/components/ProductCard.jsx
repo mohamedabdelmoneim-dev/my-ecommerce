@@ -14,15 +14,15 @@ import productCardStyles from "../assets/CSS/General/product-card.module.css";
 
 function ProductCard ( { xlSize, lgSize, id, title, description, category, price, discountPercentage, rating, stock, tags, brand, reviews, returnPolicy, minimumOrderQuantity, images, thumbnail, status } ) {
     const handleStars = (rating) => {
-        const stars = [];
+    const stars = [];
         for (let i = 0; i < Math.floor(rating); i++) {
-            stars.push(<FaStar style={{ fill: "#FFB900", fontSize: "15px" }} />)
+            stars.push(<FaStar key={`star-full-${i}`} style={{ fill: "#FFB900", fontSize: "15px" }} />)
         }
         if (rating % 1 > 0) {
-            stars.push(<FaStarHalfStroke style={{ fill: "#FFB900", fontSize: "15px" }} />)
+            stars.push(<FaStarHalfStroke key="star-half" style={{ fill: "#FFB900", fontSize: "15px" }} />)
         }
         for (let i = 0; i < 5 - Math.ceil(rating); i++) {
-            stars.push(<FaRegStar style={{ fontSize: "15px", fill: "var(--text-color)" }} />)
+            stars.push(<FaRegStar key={`star-empty-${i}`} style={{ fontSize: "15px", fill: "var(--text-color)" }} />)
         }
         return stars;
     }
@@ -72,12 +72,12 @@ function ProductCard ( { xlSize, lgSize, id, title, description, category, price
     const [showAsideCart, setShowAsideCart] = useState(false)
     const navigate = useNavigate();
     return (
-        <div ref={productCard} className={`${productCardStyles["product-card"]} col-xl-${xlSize} col-lg-${lgSize} col-md-6 col-sm-6 col-11 d-flex flex-column`} style={{ borderRadius: "15px", height: "max-content", cursor: "pointer" }}>
+        <div ref={productCard} className={`${productCardStyles["product-card"]} col-xl-${xlSize} col-lg-${lgSize} col-sm-6 d-flex flex-column`} style={{ borderRadius: "15px", height: "max-content", cursor: "pointer" }}>
             <div className="position-relative">
                 <img onClick={() => navigate(`/product/${id}`)} loading="lazy" src={thumbnail} alt="" className="" style={{ backgroundColor: "#FFF", borderRadius: "15px 15px 0 0", width: "100%", transition: "0.3s" }} />
                 <div className="position-absolute d-flex flex-column justify-content-evenly gap-1" style={{ top: "10px", left: "10px" }}>
-                    <p style={{ borderRadius: "10px", color: "white", width: "fit-content", padding: "5px 10px", fontSize: "0.8rem", fontWeight: 700, marginBottom: 0 }} className={randomStatus == "Limited" ? productCardStyles["limited-product"] : randomStatus == "Trending" || randomStatus == "New" ? productCardStyles["blue-status"] : productCardStyles["orange-status"]}>{randomStatus}</p>
-                    <p className="py-1 px-2" style={{ borderRadius: "10px", color: "white", backgroundColor: "#18CD60", width: "fit-content", fontSize: "0.8rem", fontWeight: 700 }}>-{discountPercentage}%</p>
+                    <p style={{ borderRadius: "10px", color: "white", width: "fit-content", padding: "5px 10px", fontSize: "0.8rem", fontWeight: 700, marginBottom: 0 }} className={`${randomStatus == "Limited" ? productCardStyles["limited-product"] : randomStatus == "Trending" || randomStatus == "New" ? productCardStyles["blue-status"] : productCardStyles["orange-status"]} ${productCardStyles["status"]}`}>{randomStatus}</p>
+                    <p className={`${productCardStyles["discount"]} py-1 px-2`} style={{ borderRadius: "10px", color: "white", backgroundColor: "#18CD60", width: "fit-content", fontSize: "0.8rem", fontWeight: 700 }}>-{discountPercentage}%</p>
                 </div>
                 <div className="position-absolute d-flex flex-column gap-2" style={{ top: "10px", right: "10px" }}>
                     <div ref={cardHeart} className={`${productCardStyles["card-heart"]} ${IsWishlist ? productCardStyles["wishlisted"] : ""}`} style={{ padding: "5px 10px", borderRadius: "10px", transition: "0.3s", cursor: "pointer", backgroundColor: heartBackgroundColor  }} onClick={handleWishlist}>{IsWishlist ? <FaHeart style={{ fill: "#FFF", fontSize: "13px" }} /> : <FaRegHeart style={{ fill: "#FFF", fontSize: "13px" }} />}</div>
@@ -89,17 +89,17 @@ function ProductCard ( { xlSize, lgSize, id, title, description, category, price
                 </div>
             </div>
             <div onClick={() => navigate(`/product/${id}`)} className={`${productCardStyles["bottom-card"]} px-2 py-3`} style={{ backgroundColor: "#3837376e", borderRadius: "0 0 15px 15px " }}>
-                <div className="d-flex gap-3 align-items-start" style={{ marginBottom: "7px" }}>
+                <div className="d-flex gap-3 align-items-start flex-sm-row flex-column" style={{ marginBottom: "7px" }}>
                     <div className={productCardStyles["stars"]}>
                         {handleStars(rating)}
                     </div>
                     <p className="mb-0" style={{ color: "var(--text-color)" }}>(2,847)</p>
                 </div>
-                <p className="text-white fw-bold" style={{ marginBottom: "10px", minHeight: "50px" }}>
+                <p className="text-white fw-bold" style={{ marginBottom: "10px", minHeight: "50px", overflow: "hidden", textOverflow: "ellipsis", display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", }}>
                     {title}
                 </p>
-                <div className="d-flex justify-content-between gap-2" style={{ marginBottom: "10px" }}>
-                    <div className={`${productCardStyles["card-price"]} d-flex align-items-center gap-1`}>
+                <div className="d-flex justify-content-between gap-2 flex-sm-row flex-column" style={{ marginBottom: "10px" }}>
+                    <div className={`${productCardStyles["card-price"]} d-flex align-items-sm-center gap-1 flex-sm-row flex-column`}>
                         <p className="text-white mb-0" style={{ fontSize: "13px" }}>${price}</p>
                         <p style={{ marginBottom: 0, color: "var(--text-color)", fontSize: "13px", fontSize: "13px" }}><del>${ Math.round((price / ((100 - discountPercentage) / 100)) * 100) / 100 }</del></p>
                     </div>

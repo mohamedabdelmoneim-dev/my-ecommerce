@@ -121,8 +121,8 @@ function Home() {
                     </div>
                     <div className='d-flex justify-content-center justify-content-md-start flex-start row '>
                         <div className='col-lg-6 col-12' style={{ fontFamily: 'Pretendard, sans-serif' }}>
-                            <h1 className={`${homeStyles["hero-header"]} text-white mb-3`}>Discover <span className={homeStyles["gradient-text"]} >Premium</span> Products<span className={homeStyles["dot"]}></span></h1>
-                            <p className='w-75' style={{ color: "var(--text-color)", fontSize: '1.25rem' }}>Curated collection of luxury electronics, fashion, and lifestyle essentials for the discerning individual.</p>
+                            <h1 className={`${homeStyles["hero-header"]} text-white mb-3 `}>Discover <span className={homeStyles["gradient-text"]} >Premium</span> Products<span className={homeStyles["dot"]}></span></h1>
+                            <p className='w-sm-75 w-100' style={{ color: "var(--text-color)", fontSize: '1.25rem' }}>Curated collection of luxury electronics, fashion, and lifestyle essentials for the discerning individual.</p>
                             <div className='d-flex flex-lg-row flex-column gap-3 mt-5'>
                                 <button className='py-3 fw-bold d-flex justify-content-center'>
                                     <Link className='text-decoration-none text-white d-flex align-items-center' to="/shop">
@@ -140,8 +140,8 @@ function Home() {
                 </div>
                 <div className={`${homeStyles["hero-rates"]} position-relative`}>
                     <div className="container">
-                        <div className="pt-4 d-flex w-50 mt-5 ">
-                            <div className='d-flex text-white gap-xl-5 gap-sm-3 gap-2 text-center align-items-center' style={{ fontWeight: 900 }}>
+                        <div className="pt-4 d-flex justify-content-sm-start justify-content-center w-sm-50 w-100 mt-5 ">
+                            <div className={`${homeStyles["hero-rates-content"]} d-flex text-white gap-xl-5 gap-sm-3 gap-2 text-center align-items-center`} style={{ fontWeight: 900 }}>
                                 <div>
                                     <h3>50k+</h3>
                                     <p>Happy Customers</p>
@@ -200,14 +200,14 @@ function Home() {
             </section>
             <section className={`animate-section ${homeStyles["limited-offer"]} mb-5`} style={{ marginTop: "100px", }}>
                 <div className="container">
-                    <div className='d-flex justify-content-between align-items-center row' style={{ borderRadius: "25px", height: "fit-content", background: "linear-gradient(135deg, #FF613B, #FF9133, #FF582F)"}}>
+                    <div className={`${homeStyles["limited-offer-content"]} d-flex justify-content-between align-items-center row`} style={{ borderRadius: "25px", height: "fit-content", background: "linear-gradient(135deg, #FF613B, #FF9133, #FF582F)"}}>
                         <div className='d-flex flex-column p-5 text-white col-xl-5 col-md-6 col-12'>
                             <p className=' fw-bold d-flex align-items-center gap-1' style={{ letterSpacing: "1px" }}><HiLightningBolt className='fs-4' /> LIMITED OFFER</p>
                             <h1 style={{ fontWeight: 900, fontSize: "3rem", letterSpacing: "-3px" }}>Up to 40% Off Premium Gear</h1>
                             <p style={{ color: "#FFD8C8", fontSize: "1.1rem" }}>Limited time offer on our bestselling electronics and accessories. Don't miss out.</p>
                         </div>
                         <div className='d-flex flex-column align-items-center col-xl-3 col-lg-4 col-md-5'>
-                            <div className='d-flex align-items-center gap-3 text-white mb-4'>
+                            <div className={`${homeStyles["countdown"]} d-flex align-items-center gap-3 text-white mb-4`}>
                                 <div className='text-center px-3 pb-0 pt-3' style={{ backgroundColor: "rgba(255, 255, 255, 0.3)", borderRadius: "15px" }}>
                                     <h2 style={{ fontWeight: 900 }}>48</h2>
                                     <p style={{ color: "#FFCFB5", fontSize: "12px" }}>Hours</p>
@@ -245,7 +245,7 @@ function Home() {
             </section>
             <section className={`animate-section container-fluid ${homeStyles["some-advantage"]}`} style={{ marginBottom: "100px", backgroundColor: "#0D0D0D", borderTop: "solid 1px #242424", borderBottom: "solid 1px #242424" }}>
                 <div className="container">
-                    <div className="d-flex justify-content-between flex-wrap w-100 py-5">
+                    <div className={` ${homeStyles["advantages"]} d-flex justify-content-between flex-wrap w-100 py-5`}>
                         {
                             advantages.map(adv => {
                                 return <AdvantageCard advIcon = {adv.icon} advTitle = {adv.title} advDesc = {adv.desc} />

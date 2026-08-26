@@ -72,7 +72,7 @@ function Footer () {
                             <h4 className='text-white fw-bold mb-3'>Join the LUXE community</h4>
                             <p style={{ color: "#6F7072" }}>Get exclusive deals, new arrivals, and style inspiration delivered to your inbox.</p>
                         </div>
-                        <div className={`${footerStyles["footer-email-sub"]} d-flex gap-2 align-items-center justify-content-lg-center justify-content-sm-start justify-content-center `}>
+                        <div className={`${footerStyles["footer-email-sub"]} d-flex gap-2 align-items-sm-center justify-content-lg-center justify-content-sm-start justify-content-center flex-column flex-sm-row flex-lg-row w-100`} style={{ width: "60%" }}>
                             <div className={`${footerStyles["email"]} px-3 py-2 d-flex align-items-center`} style={{ backgroundColor: "#171717", borderRadius: "15px", height: "45px", transition: "0.3s" }}>
                                 <SlEnvolope style={{ fill: "#6F7072" }} />
                                 <input type="email" name="email" id="email" placeholder='your@email.com' className='border-0 ms-md-2 ms-1 text-white' style={{ backgroundColor: "#171717", fontSize: "14px", width: "250px", transition: "0.3s" }} />
@@ -85,7 +85,7 @@ function Footer () {
             <section className={`animate-section ${footerStyles["footer-links"]} pb-5`} style={{ borderBottom: "1px solid #242424" }}>
                 <div className="container">
                     <div className="d-flex justify-content-start row">
-                        <div className='d-flex flex-column col-xl-3 col-12 mb-xl-0 mb-5 text-md-start text-center'>
+                        <div className='d-flex flex-column col-xl-3 col-12 mb-xl-0 mb-5 text-md-start text-sm-center'>
                             <img src={logo} className={`${footerStyles["logo"]} mb-3`} alt="Logo" style={ { width: '110px', cursor: 'pointer'} } />
                             <p style={{ color: "#6F7072", fontSize: "14px" }}>Premium products curated for those who demand the best in quality, design, and innovation.</p>
                             <div className={footerStyles["social-media"]}>
@@ -99,7 +99,7 @@ function Footer () {
                         </div>
                         {
                             footerLinks.map(footerlink => {
-                                return <FooterLink linksTitle = {footerlink.title} links = {footerlink.links} />
+                                return <FooterLink linksTitle = {footerlink.title} links = {footerlink.links} key={footerlink.title} />
                             })
                         }
                     </div>

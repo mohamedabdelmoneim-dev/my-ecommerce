@@ -27,7 +27,7 @@ function ProductsList ({ xlSize, lgSize, limit = undefined, category = undefined
         return () => observer.disconnect();
     },[unique])
     return (
-        <div className={`ms-${ms} products-list row g-xl-3 g-5 w-100 align-self-center justify-content-xl-start justify-content-center animate-section`}>
+        <div className={`ms-${ms} products-list row g-3 w-100 align-self-center justify-content-xl-start justify-content-sm-center animate-section`}>
 
             
             {

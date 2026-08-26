@@ -17,29 +17,25 @@ import shopStyles from "../../assets/CSS/Shop/shop.module.css";
 import radioStyles from "../../assets/CSS/Shop/radio.module.css";
 
 function Shop () {
-    console.log(shopStyles)
     const { category: urlCategory } = useParams();
     const { products } = useContext(ProductsContext);
     const { search, setSearch } = useContext(SearchContext);
-    if (!products) return <div className="d-flex justify-content-center align-items-center w-100" style={{ height: "100vh" }}>
-        <div className="spinner-border" style={{ color: "var(--main-color)" }} role="status">
-            <span className="visually-hidden">Loading...</span>
-        </div>
-    </div>;
-    const maxAvailablePrice = Math.max(...products.products.map(product => product.price), 0);
+    const location = useLocation();
+
     const [shopProducts, setShopProducts] = useState([]);
     const [asideCategory, setAsideCategory] = useState(urlCategory || "All");
-    const [maxPrice, setMaxPrice] = useState(maxAvailablePrice);
+    const [maxPrice, setMaxPrice] = useState(0);
     const [asideRate, asideSetRate] = useState(0);
     const [choosingRate, setChoosingRate] = useState(false);
     const [sortProducts, setSortProducts] = useState("Featured")
     const [sortBy, setSortBy] = useState("Featured");
     const [sortActive, setSortActive] = useState("Featured");
     const [isGrid, setIsGrid] = useState(true);
-    
+    const [isOpen, setIsOpen] = useState(false);
+    const [smallDeviceFilter, setSmallDeviceFilter] = useState(false);
 
-    const location = useLocation();
     useEffect(() => {
+        if (!products) return;
         let filteredProducts = products.products.filter(product => {
             
             const categoryMatch = asideCategory === "All" || product.category === asideCategory;
@@ -57,20 +53,33 @@ function Shop () {
 
         setShopProducts(filteredProducts);
     }, [asideCategory, maxPrice, products, asideRate, sortBy, search ]);
+
     useEffect (() => {
         setAsideCategory(urlCategory || "All");
     }, [urlCategory])
+
+    useEffect(() => {
+        if (products) {
+            const highest = Math.max(...products.products.map(product => product.price), 0);
+            setMaxPrice(highest);
+        }
+    }, [products]);
     
-    const [isOpen, setIsOpen] = useState(false);
     const handleSearcing = (value) => {
         setSearch (value)
     }
     const sortOptions = ["Featured", "Newest", "Price: Low to High", "Price: High to Low", "Top Rated", "Best Discount"];
-    const [smallDeviceFilter, setSmallDeviceFilter] = useState(false);
+
+    if (!products) return <div className="d-flex justify-content-center align-items-center w-100" style={{ height: "100vh" }}>
+        <div className="spinner-border" style={{ color: "var(--main-color)" }} role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    </div>;
+
     return (
         <>
             {smallDeviceFilter && <div className={shopStyles["overlay"]}></div>}
-            <div style={{ paddingTop: "64px" }}>
+            <div style={{ paddingTop: "64px"}}>
                 <div className="mt-5" style={{ backgroundColor: "#141414", padding: "20px", borderBottom: "1px solid #242424" }}>
                     <div className="container">
                         <div className="container-fluid" style={{ width: "100%" }}>
@@ -91,7 +100,7 @@ function Shop () {
             </div>
             <div style={{ marginBottom: "6rem" }}>
                 <div className={shopStyles["shop-container"]}>
-                    <div className="row justify-content-between">
+                    <div className="row justify-content-between" style={{ maxWidth: "100%" }}>
                         <div className={`${shopStyles["shop-aside"]} col-lg-3`} style={{ width: "16.938rem", marginTop: "6rem" }}>
                             <ShopAside 
                                 asideCategory={asideCategory} asideSetCategory={setAsideCategory}
@@ -100,14 +109,14 @@ function Shop () {
                                 asideSearchBar={search} handleSearcing={handleSearcing}
                             />
                         </div>
-                        <div className="col-xl-9 col-lg-8 col-12" style={{ marginTop: "2rem" }}>
-                            <div className="mx-lg-0 mx-md-4 mx-0 d-flex justify-content-lg-end justify-content-md-between justify-content-around align-items-center mb-4 gap-3">
+                        <div className={`${shopStyles["shop-content"]} col-xl-9 col-lg-8 col-12`} style={{ marginTop: "2rem" }}>
+                            <div className="mx-lg-0 mx-md-4 ms-2 d-flex justify-content-lg-end justify-content-between align-items-center mb-4 gap-3">
                                 <div className={`${shopStyles["filter-btn-res"]} d-flex align-items-center gap-2 px-3 py-2`} onClick={() => setSmallDeviceFilter(!smallDeviceFilter)} style={{ backgroundColor: "#161616", border: "1px solid #2C2C2C", borderRadius: "15px", cursor: "pointer" }}>
                                     <FiFilter style={{ color: "#A7A4A7" }} />
                                     <p className="mb-0" style={{ color: "#A7A4A7" }}>Filters</p>
                                 </div>
                                 <div className="d-flex justify-content-end align-items-center gap-2">
-                                    <div className={`${radioStyles["radio-group"]} ${radioStyles["grid-list-toggle"]}`}>
+                                    <div className={`${radioStyles["radio-group"]} ${shopStyles["grid-list-toggle"]}`}>
                                         <div className={radioStyles["slider"]} />
                                         <div className={radioStyles["radio-option"]}>
                                             <input type="radio" name="option" id="option1" defaultChecked />
@@ -132,7 +141,7 @@ function Shop () {
                                                 <div className={shopStyles["sort-dropdown"]} style={{
                                                     position: "absolute",
                                                     top: "130%",
-                                                    left: "0rem",
+                                                    left: "calc(30% - 105px)",
                                                     animation: "slideDown 0.3s ease",
                                                     color: "#FFF",
                                                     zIndex: 999,

@@ -17,9 +17,7 @@
     font-size: 15px;
     
 }
-.filter-btn > button {
-    margin-right: 0.75rem;
-}
+
 .filter-btn button:hover {
     background-color: #232323;
     transform: scale(1);
@@ -131,6 +129,9 @@
 }
 @media (max-width: 554px) {
     .grid-list-toggle {
-        display: none;
+        display: none !important;
+    }
+    .shop-content {
+        padding-right: 0 !important;
     }
 }

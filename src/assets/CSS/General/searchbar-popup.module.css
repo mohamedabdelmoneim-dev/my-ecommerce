@@ -23,3 +23,35 @@ input::placeholder {
 .search-bar {
     animation: showBar 0.25s ease forwards;
 }
+@media (max-width: 770px) {
+    .search-bar-box {
+        width: calc(100% - 100px) !important;
+    }
+}
+@media (max-width: 425px) {
+    .search-bar input::placeholder {
+        font-size: 14px !important;
+    }
+    .search-bar-box {
+        width: 80% !important;
+    }
+}
+@media (max-width: 375px) {
+    .search-bar input::placeholder {
+        font-size: 13px !important;
+    }
+    .search-bar-box {
+        width: 90% !important;
+    }
+}
+@media (max-width: 325px) {
+    .search-bar input::placeholder {
+        font-size: 12px !important;
+    }
+    
+}
+@media (hover: none) and (pointer: coarse) {
+    .keyboard-hint {
+        display: none;
+    }
+}

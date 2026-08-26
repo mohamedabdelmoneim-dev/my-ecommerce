@@ -100,6 +100,45 @@
     color: #FFF !important;
 }
 
+@keyframes slide {
+    from {
+        opacity: 0;
+        transform: translateX(110%);
+        -webkit-transform: translateX(110%);
+        -moz-transform: translateX(110%);
+        -ms-transform: translateX(110%);
+        -o-transform: translateX(110%);
+}
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+}
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+}
+    to {
+        opacity: 0;
+        transform: translateX(110%);
+        -webkit-transform: translateX(110%);
+        -moz-transform: translateX(110%);
+        -ms-transform: translateX(110%);
+        -o-transform: translateX(110%);
+}
+}
+
+
 @media (max-width: 767.98px) {
     .side-menu-socials-support-wrapper {
         display: flex;
@@ -170,7 +209,7 @@
     }
 }
 
-.animate-section-side > *{
+:global(.animate-section-side) > * {
     opacity: 0;
     transform: translateX(30px);
     transition: opacity 0.45s ease, transform 0.45s ease;
@@ -180,7 +219,7 @@
     -o-transform: translateX(30px);
 }
 
-.animate-section-side > *.visible {
+:global(.animate-section-side) > *:global(.visible) {
     opacity: 1;
     transform: translateX(0);
 }

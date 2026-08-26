@@ -20,11 +20,29 @@
     opacity: 0;
     transition: 0.3s;
 }
-.product-card:hover .disapled-quick-add {
+.product-card:hover:not(:has(.card-heart:hover)) .disapled-quick-add {
     opacity: 1;
     transform: translateY(-15px);
+    
 }
 .disapled-quick-add:hover button {
     background-color: #ec320d !important;
     transform: scale(1.05);
 }
+
+@media (max-width: 576px) {
+    .product-card {
+        width: 50% !important;
+    }
+    .bottom-card ~ div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .status,
+    .discount {
+        font-size: 0.6rem !important;
+    }
+}
+
+

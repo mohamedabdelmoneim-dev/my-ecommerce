@@ -170,8 +170,8 @@ function Product () {
                             </li>
                         </ul>
                     </div>
-                    <div className="row my-5">
-                        <div className="col-md-6 col-12 ps-0">
+                    <div className="row my-5 gap-5">
+                        <div className="col-md-6 col-12 ps-0 justify-content-start d-flex flex-column align-items-sm-start align-items-center">
                             <Swiper
                                 effect={'fade'}
                                 fadeEffect={{ crossFade: true }}
@@ -191,13 +191,13 @@ function Product () {
                                         return (
                                             <>
                                                 <SwiperSlide>
-                                                <div className="position-relative ms-md-0 ms-3">
+                                                <div className={`product-image`} >
                                                     <img src={prod} style={{ backgroundColor: "#FFF", borderRadius: "15px", width: "100%", maxWidth: "39.8125rem", height: "auto" }} />
-                                                    <div className="position-absolute d-flex flex-column justify-content-evenly gap-1" style={{ top: "10px", left: "0.7rem" }}>
+                                                    <div className={`product-badge position-absolute d-flex flex-column justify-content-evenly gap-1`} style={{ top: "10px", left: "0.7rem" }}>
                                                         <p style={{ borderRadius: "10px", color: "white", width: "fit-content", padding: "5px 10px", fontSize: "0.8rem", fontWeight: 700, marginBottom: 0 }} className={randomStatus == "Limited" ? `${productStyles["limited-product"]}` : randomStatus == "Trending" || randomStatus == "New" ? `${productStyles["blue-status"]}` : `${productStyles["orange-status"]}`}>{randomStatus}</p>
                                                         <p className="py-1 px-2" style={{ borderRadius: "10px", color: "white", backgroundColor: "#18CD60", width: "fit-content", fontSize: "0.8rem", fontWeight: 700 }}>-{product.discountPercentage}%</p>
                                                     </div>
-                                                    <div className="position-absolute d-flex flex-column gap-2" style={{ top: "10px", right: "1.3rem" }}>
+                                                    <div className={`product-heart position-absolute d-flex flex-column gap-2`} style={{ top: "10px", right: "1.3rem" }}>
                                                         <div ref={cardHeart} className={`card-heart ${IsWishlist ? "wishlisted" : ""}`} style={{ padding: "5px 10px", borderRadius: "10px", transition: "0.3s", cursor: "pointer", backgroundColor: heartBackgroundColor  }} onClick={handleWishlist}>{localStorage.getItem(`heart-color${productId}`) === "#FFF" ? <FaHeart style={{ fill: "#FFF", fontSize: "15px" }} /> : <FaRegHeart style={{ fill: "#FFF", fontSize: "15px" }} />}</div>
                                                     </div>
                                                 </div>
@@ -207,7 +207,7 @@ function Product () {
                                     })
                                 }
                             </Swiper>
-                            <div className="d-flex align-items-center justify-content-start mt-5 gap-3">
+                            <div className="other-images d-flex align-items-center justify-content-start mt-5 gap-3">
                                 {
                                     product?.images.map((prod, index) => {
                                         return (
@@ -217,16 +217,16 @@ function Product () {
                                 }
                             </div>
                         </div>
-                        <div className="col-md-6 col-12 pe-0">
+                        <div className="col-md-5 col-12 pe-sm-0 pe-3">
                             <div className="d-flex gap-3 align-items-start">
                                 <div>{handleStars(product?.rating)}</div>
                                 <p style={{ color: "#989D9D", marginTop: "4px", fontSize: "14px" }}>{product?.rating} (2,847 reviews)</p>
                             </div>
                             <h2 className="text-white mb-4" style={{ fontWeight: 900 }}>{product?.title}</h2>
                             <div className="d-flex align-items-center gap-3 mb-4">
-                                <h3 className="text-white mb-2" style={{ fontWeight: 900 }}>${product?.price}</h3>
+                                <h3 className="text-white mb-0" style={{ fontWeight: 900 }}>${product?.price}</h3>
                                 <p className="mb-0" style={{ color: "#545354" }}><del>${ Math.round((product?.price / ((100 - product?.discountPercentage) / 100)) * 100) / 100 }</del></p>
-                                <p className="mb-0 px-3 py-1" style={{ color: "#05DF66", fontSize: "14px", backgroundColor: "#092715", border: "1px solid #074721", borderRadius: "10px" }}>Save ${ Math.round((product?.price / ((100 - product?.discountPercentage) / 100) - product?.price) * 100) / 100 }</p>
+                                <p className="mb-0 px-3 py-1" style={{ color: "#05DF66", fontSize: "13px", backgroundColor: "#092715", border: "1px solid #074721", borderRadius: "10px" }}>Save ${ Math.round((product?.price / ((100 - product?.discountPercentage) / 100) - product?.price) * 100) / 100 }</p>
                             </div>
                             <p style={{ color: "#939D9D" }}>{product?.description}</p>
                             <div className="d-flex justify-content-between mt-5">
@@ -253,9 +253,9 @@ function Product () {
                                     <p className="text-white mb-0 mx-1">{numQuantity}</p>
                                     <button style={{ backgroundColor: "transparent", color: "#FFF" }} onClick={handleIncreaseQuan}>+</button>
                                 </div>
-                                <p className="mb-0" style={{ color: "#4F5354" }}>${numQuantity * product?.price}total</p>
+                                <p className={`${productStyles["product-total"]} mb-0`} style={{ color: "#4F5354" }}>${numQuantity * product?.price}total</p>
                             </div>
-                            <div className="d-flex align-items-center gap-3 mb-4">
+                            <div className="d-flex align-items-center flex-lg-row flex-column gap-3 mb-4">
                                 {
                                     addedToCart ?  <button className={`${productStyles["product-add-to-cart"]} d-flex justify-content-center align-items-center gap-2`} style={{ backgroundColor: "#00C950", color: "#FFF", textAlign: "canter", width: "60%", height: "50px", borderRadius: "15px", fontWeight: "bold", transition: "0.3s" }}>
                                     <FaCheck />Added to Cart
@@ -276,18 +276,18 @@ function Product () {
                             <div className={`d-flex align-items-center justify-content-around ${productStyles["adv-prod"]} p-3 mb-4`} style={{ backgroundColor: "#141414", borderRadius: "15px", border: "1px solid #212121" }}>
                                 <div className="d-flex flex-column align-items-center justify-content-center">
                                     <BsTruck className="mb-1" style={{ color: "var(--main-color)", fontSize: "1.35rem" }} />
-                                    <p className="text-white" style={{ fontSize: "12.5px" }}>Free Delivery</p>
-                                    <p style={{ color: "#6C726C", fontSize: "11px" }}>On Oreders $200+</p>
+                                    <p className="text-white text-center" style={{ fontSize: "12.5px" }}>Free Delivery</p>
+                                    <p className="text-center" style={{ color: "#6C726C", fontSize: "11px" }}>On Oreders $200+</p>
                                 </div>
                                 <div className="d-flex flex-column align-items-center justify-content-center">
                                     <LuShield className="mb-1" style={{ color: "var(--main-color)", fontSize: "1.35rem" }} />
-                                    <p className="text-white" style={{ fontSize: "12.5px" }}>Secure Payment</p>
-                                    <p style={{ color: "#6C726C", fontSize: "11px" }}>SSL Protected</p>
+                                    <p className="text-white text-center" style={{ fontSize: "12.5px" }}>Secure Payment</p>
+                                    <p className="text-center" style={{ color: "#6C726C", fontSize: "11px" }}>SSL Protected</p>
                                 </div>
                                 <div className="d-flex flex-column align-items-center justify-content-center">
                                     <FiRefreshCw className="mb-1" style={{ color: "var(--main-color)", fontSize: "1.35rem" }} />
-                                    <p className="text-white" style={{ fontSize: "12.5px" }}>Easy Returns</p>
-                                    <p style={{ color: "#6C726C", fontSize: "11px" }}>30 days</p>
+                                    <p className="text-white text-center" style={{ fontSize: "12.5px" }}>Easy Returns</p>
+                                    <p className="text-center" style={{ color: "#6C726C", fontSize: "11px" }}>30 days</p>
                                 </div>
                             </div>
                             <div className="d-flex flex-column ">

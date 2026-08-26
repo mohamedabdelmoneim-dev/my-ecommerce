@@ -130,3 +130,15 @@ header :global(.dropdown-menu) li a {
         font-size: 30px !important;
     }
 }
+@media (max-width: 572px) {
+    header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media (max-width: 390px) {
+    header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

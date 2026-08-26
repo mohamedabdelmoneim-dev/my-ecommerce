@@ -5,7 +5,7 @@ import inputStyles from "../../assets/CSS/Shop/input-shop.module.css";
 
 const Input = ({ asideSearchBar, handleSearcing }) => {
   return (
-    <form className={`${inputStyles["input-shop"]} d-flex align-items-center gap-2`}>
+    <form className={`${inputStyles["input-shop"]} d-flex align-items-center gap-2 w-100`}>
       <FiSearch style={{ color: "#75756A", width: "17px", marginBottom: "1px" }} />
       <input 
         className={`${inputStyles["input"]} text-white`} 

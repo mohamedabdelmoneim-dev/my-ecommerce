@@ -1,13 +1,18 @@
-import { createPortal } from "react-dom";
-import { IoClose } from "react-icons/io5";
-import { IoIosSearch } from "react-icons/io";
 import ProductsContext from "../../contexts/ProductsContext";
+
+import { createPortal } from "react-dom";
 import { useContext, useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+
+import { IoClose } from "react-icons/io5";
+import { IoIosSearch } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 
-
+import asideRadioStyles from "../../assets/CSS/Shop/aside-radio.module.css";
+import asideShopStyles from "../../assets/CSS/Shop/shop-aside.module.css";
 import shopFiltersSmallStyles from "../../assets/CSS/Shop/shop-filters-small-device.module.css";
+import inputStyles from "../../assets/CSS/Shop/input-shop.module.css";
+import Input from "./Input";
 
 function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPrice, asideSetMaxPrice, asideRate, asideSetRate, asideSearchBar, handleSearcing, onClose }) {
     const { products } = useContext(ProductsContext);
@@ -66,7 +71,7 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
     return createPortal (
         <>
             <div className={`${shopFiltersSmallStyles["shop-filters-overlay"]} ${isClosing ? shopFiltersSmallStyles["closing"] : ""}`} onClick={handleClose}></div>
-            <div className={`${shopFiltersSmallStyles["animate-section"]} ${shopFiltersSmallStyles["shop-filters-small-device"]} position-fixed d-flex flex-column align-items-start px-4 py-4`} style={{ width: "100%", backgroundColor: "#111111", border: "1px solid #2F2F2F", borderRadius: "15px", zIndex: 9999, bottom: 0, left: 0, height: "85vh", animation: isClosing ? "slideUpOut 0.3s ease forwards" : "slideUp 0.3s ease" }}>
+            <div className={`${shopFiltersSmallStyles["animate-section"]} ${shopFiltersSmallStyles["shop-filters-small-device"]} position-fixed d-flex flex-column align-items-start px-4 py-4`} style={{ width: "100%",  backgroundColor: "#111111",  border: "1px solid #2F2F2F",  borderRadius: "15px",  zIndex: 9999,  bottom: 0,  left: 0,  height: "85vh",  animationName: isClosing ? shopFiltersSmallStyles["slideUpOut"] : shopFiltersSmallStyles["slideUp"], animationDuration: "0.3s", animationTimingFunction: "ease", animationFillMode: isClosing ? "forwards" : "none" }}>
                 <div className={`${shopFiltersSmallStyles["animate-section"]} d-flex align-items-center justify-content-between w-100`}>
                     <h5 className="text-white mb-0 fw-bold">Filters</h5>
                     <button className="" onClick={handleClose} style={{ backgroundColor: "#242424", borderRadius: "12px", padding: "5px 8px", border: "none" }}>
@@ -74,38 +79,37 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
                     </button>
                 </div>
                 <div className={`${shopFiltersSmallStyles["animate-section"]} mt-4 w-100`}>
-                    <label htmlFor="search" className={`${shopFiltersSmallStyles["search-label"]} form-label text-white fw-bold`}>Search</label>
-                    <div className={`${shopFiltersSmallStyles["search-bar-small-container"]} d-flex align-items-center`} style={{ backgroundColor: "#1F1F1F", borderRadius: "10px", padding: "5px 10px" }}>
-                        <IoIosSearch style={{ color: "#615E61", fontSize: "1.25rem" }} />
-                        <input className={`${shopFiltersSmallStyles["search-bar-small"]} form-control`} style={{ backgroundColor: "transparent", border: "none" }} type="text" id="search" value={asideSearchBar} onChange={(e) => handleSearcing(e.target.value)} placeholder="Search products..." />
+                    <label htmlFor="search" className={`${inputStyles["search-label"]} form-label text-white fw-bold`}>Search</label>
+                    <div>
+                        <Input />
                     </div>
                 </div>
-                <div className={`${shopFiltersSmallStyles["animate-section"]} mt-4 w-100`}>
-                    <h6 htmlFor="category" className={`${shopFiltersSmallStyles["category-label"]} form-label text-white fw-bold`}>Category</h6>
+                <div className={`${asideShopStyles["animate-section"]} mt-4 w-100`}>
+                    <h6 htmlFor="category" className={`${asideShopStyles["category-label"]} form-label text-white fw-bold`}>Category</h6>
                     <ul className="ps-0" style={{ width: "100%" }}>
                         {
                             categories.map(cat => {
-                                return <li className={`list-group-item p-0 mb-1 ${shopFiltersSmallStyles["shop-aside-btn"]}`} style={{ borderRadius: "10px", fontSize: "14px", transition: "0.3s" }}><NavLink to={`/shop/${cat}`} className={({ isActive }) => {
+                                return <li className={`list-group-item p-0 mb-1 ${asideShopStyles["shop-aside-btn"]}`} style={{ borderRadius: "10px", fontSize: "14px", transition: "0.3s" }}><NavLink to={`/shop/${cat}`} className={({ isActive }) => {
                                     const isAllDefault = cat === "All" && location.pathname === "/shop";
-                                    return `${isActive || isAllDefault ? shopFiltersSmallStyles["aside-active"] : ""} px-3 py-2 d-flex align-items-center justify-content-between`;
+                                    return `${isActive || isAllDefault ? asideShopStyles["aside-active"] : ""} px-3 py-2 d-flex align-items-center justify-content-between`;
                                 }} style={{ width: "100%", display: "block", borderRadius: "10px", color: "#888788"}} onClick={() => {asideSetCategory(cat)}}>{cat} <span>{cat == "All" ? products.products.length : products.products.filter(prod => prod.category === cat).length}</span></NavLink></li>
                                 
                             })
                         }
                     </ul>
                 </div>
-                <div className={`${shopFiltersSmallStyles["animate-section"]} mt-4 w-100`}>
+                <div className={`animate-section mt-4 w-100`}>
                     <h6 htmlFor="price" className={`${shopFiltersSmallStyles["price-label"]} form-label text-white fw-bold`}>Price Range</h6>
                     <div className="d-flex">
                         <input id="range1" className={`form-range me-3 ${shopFiltersSmallStyles["price-range"]}`} type="range" min={0} max={Math.max(...products.products.map(prod => prod.price), 0)} step={10} value={asideMaxPrice} onChange={(e) => {asideSetMaxPrice(e.target.value)}} />
                         <label htmlFor="range1" className="form-label">{asideMaxPrice}</label>
                     </div>
                 </div>
-                <div className={`${shopFiltersSmallStyles["animate-section"]}  w-100`}>
+                <div className={`animate-section  w-100`}>
                     <p className="text-white fw-bold mb-2">
                         Min Rating
                     </p>
-                    <div className={shopFiltersSmallStyles["radio-container"]}>
+                    <div className={asideRadioStyles["radio-container"]}>
                         <input type="radio" name="rating" id="rate-0" value={0} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 0} />
                         <label htmlFor="rate-0" className="d-flex gap-2 align-items-center">All</label>
 
@@ -128,8 +132,8 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
                                 <FaStar style={{ fill: "gold", fontSize: "15px" }} />
                             </div>
                         </label>
-                        <div className={shopFiltersSmallStyles["glider-container"]}>
-                            <div className={shopFiltersSmallStyles["glider"]}></div>
+                        <div className={asideRadioStyles["glider-container"]}>
+                            <div className={asideRadioStyles["glider"]}></div>
                         </div>
                     </div>
                 </div>

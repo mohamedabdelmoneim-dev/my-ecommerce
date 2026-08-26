@@ -57,3 +57,15 @@
 .orange-status {
     background-color: var(--main-color) !important;
 }
+
+@media (max-width: 992px) {
+    .product-total {
+        font-size: 14px !important;
+    }
+    .product-share,
+    .product-buy-now,
+    .product-add-to-cart {
+        width: 100% !important;
+        font-size: 14px !important;
+    }
+}
