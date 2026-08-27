@@ -60,7 +60,7 @@ function Cart () {
                                         ? cart.map(prod => <CartCard product={prod} status={status} />)
                                         : ""
                                     }
-                                    <Link to="/shop" className={`${cartStyles["continue-shopping"]} d-flex align-items-center gap-2 mb-4`} style={{ color: "#4F5354", fontSize: "14px", width: "fit-content" }}><FaArrowLeftLong /> Continue Shopping</Link>
+                                    <Link to="/shop" className={`${cartStyles["continue-shopping"]} d-flex align-items-center gap-2 mb-4`} style={{ color: "#C4C4C4", fontSize: "14px", width: "fit-content" }}><FaArrowLeftLong /> Continue Shopping</Link>
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-12 col-11 mx-auto p-4" style={{ borderRadius: "15px", border: "1px solid #222222", backgroundColor: "#141414", height: "fit-content" }}>

@@ -151,3 +151,23 @@
         width: 100% !important;
     }
 }
+@media (max-width: 768px) {
+    .cart-card-image img {
+        height: 100px !important;
+    }
+}
+@media (max-width: 355px) {
+    .cart-card-image img {
+        height: 90px !important;
+    }
+}
+@media (max-width: 335px) {
+    .cart-card-image img {
+        height: 80px !important;
+    }
+}
+@media (max-width: 325px) {
+    .cart-card-image img {
+        height: 70px !important;
+    }
+}
