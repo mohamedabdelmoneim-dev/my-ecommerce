@@ -36,23 +36,36 @@ function Shop () {
 
     useEffect(() => {
         if (!products) return;
+
+        const searchLower = search.toLowerCase();
+        const searchMatchesCategory = search !== "" && products.products.some(p =>
+            p.category.toLowerCase().includes(searchLower)
+        );
+
         let filteredProducts = products.products.filter(product => {
-            
             const categoryMatch = asideCategory === "All" || product.category === asideCategory;
             const priceMatch = product.price <= maxPrice;
             const rateMatch = asideRate === 0 || product.rating >= asideRate;
-            const searchMatch = search === "" || 
-            product.title.toLowerCase().includes(search.toLowerCase()) 
+
+            let searchMatch;
+            if (search === "") {
+                searchMatch = true;
+            } else if (searchMatchesCategory) {
+                searchMatch = product.category.toLowerCase().includes(searchLower);
+            } else {
+                searchMatch = product.title.toLowerCase().includes(searchLower);
+            }
 
             return categoryMatch && priceMatch && rateMatch && searchMatch;
         });
+
         if (sortBy === "Price: Low to High") {filteredProducts = [...filteredProducts].sort((a, b) => a.price - b.price)};
         if (sortBy === "Price: High to Low") {filteredProducts = [...filteredProducts].sort((a, b) => b.price - a.price)};
         if (sortBy === "Top Rated") {filteredProducts = [...filteredProducts].sort((a, b) => b.rating - a.rating)};
         if (sortBy === "Best Discount") {filteredProducts = [...filteredProducts].sort((a, b) => b.discountPercentage - a.discountPercentage)};
 
         setShopProducts(filteredProducts);
-    }, [asideCategory, maxPrice, products, asideRate, sortBy, search ]);
+    }, [asideCategory, maxPrice, products, asideRate, sortBy, search]);
 
     useEffect (() => {
         setAsideCategory(urlCategory || "All");

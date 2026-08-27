@@ -20,7 +20,7 @@ function SearchBarPopup({ onClose, handleCloseOnSideMenu }) {
             if (e.key === "Enter") {
                 setSearch(e.target.value);
                 onClose();
-                if (searchBar.trim() !== "") {
+                if (e.target.value.trim() !== "") {
                     navigate("/shop");
                 }
                 handleCloseOnSideMenu();

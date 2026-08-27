@@ -137,9 +137,15 @@ function Header () {
                                 {showAsideCart && <CartAside onClose={() => setShowAsideCart(false)} />}
                             </li>
                         
-                            <button style={{ backgroundColor: "transparent" }} className={`${headerStyles["header-burger"]} d-lg-none d-flex align-items-center justify-content-center`} onClick={handleSideMenu}>
-                                <IoMenu style={{ fontSize: "24px", color: "#FFF" }} />
-                            </button>
+                            <div className="d-lg-none d-flex align-items-center justify-content-center">
+                                <div className="d-md-none d-flex align-items-center justify-content-center">
+                                    <Link className={`${headerStyles["search-icon-small"]} nav-link pt-1 text-white`} to="#" onClick={() => handleShowSearch()}><FiSearch style={{ fontSize: "20px" }}  /></Link>
+                                    {showSearch && <SearchBarPopup onClose={() => setShowSearch(false)} />}
+                                </div>
+                                <button style={{ backgroundColor: "transparent" }} className={`${headerStyles["header-burger"]}  d-flex align-items-center justify-content-center`} onClick={handleSideMenu}>
+                                    <IoMenu style={{ fontSize: "24px", color: "#FFF" }} />
+                                </button>
+                            </div>
                             {showsideMenu && <SideMenu onClose={() => setShowSideMenu(false)} />}
                         </ul>
                     </nav>

@@ -103,6 +103,17 @@ header :global(.dropdown-menu) li a {
     position: relative;
 
 }
+.search-icon-small {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.search-icon-small:hover {
+    background-color: #66666645;
+}
+
 
 @media (max-width: 991px) {
     .links :global(.dropdown-menu) {
