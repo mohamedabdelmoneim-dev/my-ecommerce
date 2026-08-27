@@ -24,7 +24,7 @@ function CheckoutStepper ({ steps = [], currentStep, isComplete }) {
     }
     return (
         <>
-            <div className={`${stepperStyles["stepper"]} d-flex justify-content-evenly align-items-center gap-5 position-relative w-75`}>
+            <div className={`${stepperStyles["stepper"]} d-flex justify-content-evenly align-items-center gap-5 position-relative w-lg-75 w-100`}>
                 {
                     steps.map((step, index) => {
                         return (

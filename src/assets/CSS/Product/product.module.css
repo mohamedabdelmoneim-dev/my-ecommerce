@@ -40,12 +40,13 @@
 .btn-check:checked+.btn {
     border: none;
 }
-.btn-check:checked+.btn {
-    background-color: var(--main-color);
+:global(.btn-check:checked) + .btn-outline {
+    background-color: var(--main-color) !important;
     color: #FFF !important;
 }
 .btn-outline:hover {
     color: #FFF !important;
+    /* background-color: #d7dbdb !important; */
 }
 
 .limited-product {

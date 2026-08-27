@@ -26,3 +26,34 @@
 .continue-btn:hover {
     background-color: #E63B18 !important;
 }
+
+@media (max-width: 992px) {
+    .checkout-container {
+        max-width: 100% !important;
+        padding: 0 15px 0 15px;
+        margin: 0 auto;
+    }
+    .order-summary {
+        width: 100% !important;
+        margin-top: 20px !important;
+    }
+    
+}
+@media (max-width: 405px) {
+    .continue-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    .review-item {
+        width: 100% !important;
+    }
+    .back-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        background-color: #B1AEB1 !important;
+    }
+    .checkout-info {
+        gap: 20px !important;
+        flex-direction: column-reverse !important;
+    }
+}

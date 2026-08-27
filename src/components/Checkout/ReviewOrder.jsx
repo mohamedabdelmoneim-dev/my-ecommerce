@@ -36,7 +36,7 @@ function ReviewOrder () {
                             <img src={ele.thumbnail} alt="" style={{ backgroundColor: "#FFF", borderRadius: "15px", width: "50px" }} />
                             <div className="d-flex flex-column w-100">
                                 <div className="d-flex justify-content-between w-100">
-                                    <p className="text-white mb-0" style={{ fontWeight: 600 }}>{ele.title}</p>
+                                    <p className="text-white mb-0" style={{ fontWeight: 600,  overflow: "hidden", textOverflow: "ellipsis", display: "-webkit-box", WebkitLineClamp: 1, WebkitBoxOrient: "vertical" }}>{ele.title}</p>
                                     <p className="text-white mb-0">${(Number(ele.price * ele.quantity).toFixed(2))}</p>
                                 </div>
                                 <p className="mb-0" style={{ color: "#6C6C6C", fontSize: "13px" }}>Qty: {ele.quantity}</p>
@@ -45,8 +45,8 @@ function ReviewOrder () {
                     })
                 }
             </div>
-            <div className={`d-flex justify-content-between ${reviewOrderStyles["review-info"]}`}>
-                <div className="p-3" style={{ border: "1px solid #212121", borderRadius: "15px", width: "48.5%", backgroundColor: "#141414" }}>
+            <div className={`d-flex flex-sm-row flex-column justify-content-sm-between ${reviewOrderStyles["review-info"]}`}>
+                <div className={`${reviewOrderStyles["review-item"]} p-3`} style={{ border: "1px solid #212121", borderRadius: "15px", width: "48.5%", backgroundColor: "#141414" }}>
                     <div className="d-flex gap-2 align-items-center mb-2">
                         <GrLocation style={{ color: "var(--main-color)" }} />
                         <p className={`${reviewOrderStyles["info-head"]} mb-0 text-white`} style={{ fontSize: "16px", fontWeight: "bold" }}>Shipping Address</p>
@@ -56,7 +56,7 @@ function ReviewOrder () {
                     <p>New York, NY 10001</p>
                     <p>United States</p>
                 </div>
-                <div className="p-3" style={{ border: "1px solid #212121", borderRadius: "15px", width: "48.5%", backgroundColor: "#141414" }}>
+                <div className={`${reviewOrderStyles["review-item"]} p-3`} style={{ border: "1px solid #212121", borderRadius: "15px", width: "48.5%", backgroundColor: "#141414" }}>
                     <div className="d-flex gap-2 align-items-center mb-2">
                         <LuCreditCard style={{ color: "var(--main-color)" }} />
                         <p className={`${reviewOrderStyles["info-head"]} mb-0 text-white`} style={{ fontSize: "16px", fontWeight: "bold" }}>Payment</p>

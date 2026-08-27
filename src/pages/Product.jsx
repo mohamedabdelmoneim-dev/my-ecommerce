@@ -246,14 +246,14 @@ function Product () {
                                 </div>
                                 <p style={{ color: "#6C6C6C", fontSize: "12px" }}>{spanColor}</p>
                             </div>
-                            <div className="d-flex align-items-center justify-content-start gap-3 mb-4">
+                            <div className="d-flex align-items-center justify-content-start gap-sm-3 gap-2 mb-4">
                                 <p className="text-white mb-0">Quantity</p>
                                 <div className="d-flex align-items-center justify-content-evenly" style={{ backgroundColor: "#222222", borderRadius: "15px", width: "130px", height: "45px" }}>
                                     <button style={{ backgroundColor: "transparent", color: "#FFF" }} onClick={handleDecreaseQuan}>-</button>
                                     <p className="text-white mb-0 mx-1">{numQuantity}</p>
                                     <button style={{ backgroundColor: "transparent", color: "#FFF" }} onClick={handleIncreaseQuan}>+</button>
                                 </div>
-                                <p className={`${productStyles["product-total"]} mb-0`} style={{ color: "#4F5354" }}>${numQuantity * product?.price}total</p>
+                                <p className={`${productStyles["product-total"]} mb-0`} style={{ color: "#FFF", fontWeight: "bold" }}>${numQuantity * product?.price} total</p>
                             </div>
                             <div className="d-flex align-items-center flex-lg-row flex-column gap-3 mb-4">
                                 {
@@ -305,23 +305,23 @@ function Product () {
                                 <div className="animate-section">
                                     {
                                     
-                                            prodDetails == "description" ? <><p style={{ color: "#939D9D" }}>{product?.description}</p>
+                                            prodDetails == "description" ? <><p style={{ color: "#FFF" }}>{product?.description}</p>
                                             <div className="d-flex flex-column">
                                                 <div className="d-flex align-items-center gap-2 mb-2">
                                                     <FaCheck style={{ color: "#05DF72" }} />
-                                                    <p className="mb-0" style={{ color: "#939D9D", fontSize: "0.9rem" }}>Premium quality materials</p>
+                                                    <p className="mb-0" style={{ color: "#FFF", fontSize: "0.9rem" }}>Premium quality materials</p>
                                                 </div>
                                                 <div className="d-flex align-items-center gap-2 mb-2">
                                                     <FaCheck style={{ color: "#05DF72" }} />
-                                                    <p className="mb-0" style={{ color: "#939D9D", fontSize: "0.9rem" }}>Designed for daily use</p>
+                                                    <p className="mb-0" style={{ color: "#FFF", fontSize: "0.9rem" }}>Designed for daily use</p>
                                                 </div>
                                                 <div className="d-flex align-items-center gap-2 mb-2">
                                                     <FaCheck style={{ color: "#05DF72" }} />
-                                                    <p className="mb-0" style={{ color: "#939D9D", fontSize: "0.9rem" }}>Backed by 12-month warranty</p>
+                                                    <p className="mb-0" style={{ color: "#FFF", fontSize: "0.9rem" }}>Backed by 12-month warranty</p>
                                                 </div>
                                                 <div className="d-flex align-items-center gap-2 mb-2">
                                                     <FaCheck style={{ color: "#05DF72" }} />
-                                                    <p className="mb-0" style={{ color: "#939D9D", fontSize: "0.9rem" }}>Eco-friendly packaging</p>
+                                                    <p className="mb-0" style={{ color: "#FFF", fontSize: "0.9rem" }}>Eco-friendly packaging</p>
                                                 </div>
                                             </div></> : 
                                             prodDetails == "specs" ? 

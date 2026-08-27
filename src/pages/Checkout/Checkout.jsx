@@ -112,12 +112,12 @@ function Checkout() {
                 <div className="container">
                     <div className={checkoutStyles["checkout-container"]}>
                         <div className="row">
-                            <div className="col-7">
+                            <div className="col-lg-7 col-12">
                                 <form ref={formRef} className={`animate-section ${validated ? "was-validated" : ""}`}  onSubmit={(e) => {e.preventDefault()}} noValidate >
                                     <ActiveComponent shippingSelected={shippingSelected} setShippingSelected={setShippingSelected} />
                                     {
                                         !isComplete && (
-                                            <div className="d-flex justify-content-between align-items-center mt-5">
+                                            <div className={`${checkoutStyles["checkout-info"]} d-flex flex-row justify-content-between align-items-center mt-5`}>
                                                 {
                                                     ActiveComponent == CheckoutSteps[0].Component
                                                     ? <button onClick={() => navigate('/cart')} className={`${checkoutStyles["back-btn"]} btn fw-bold d-flex align-items-center gap-2`} style={{ color: "#5C5C5C", width: "fit-content", height: "fit-content", fontSize: "16px" }}><FaArrowLeft /> Back to Cart</button>
@@ -137,8 +137,8 @@ function Checkout() {
                                     }
                                 </form>
                             </div>
-                            <div className="col-5 ps-4">
-                                <div className="p-3" style={{ backgroundColor: "#141414", borderRadius: "15px", border: "1px solid #222222", width: "95%" }}>
+                            <div className="col-lg-5 col-12 ps-lg-4">
+                                <div className={`${checkoutStyles["order-summary"]} p-3`} style={{ backgroundColor: "#141414", borderRadius: "15px", border: "1px solid #222222", width: "95%" }}>
                                     <p className="text-white fw-bold pb-3 mb-1" style={{ fontSize: "17px" }}>Order Summary</p>
                                     <div className="d-flex flex-column mb-3" style={{ borderBottom: "1px solid #222222" }}>
                                         {

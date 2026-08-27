@@ -58,7 +58,7 @@ function ShopAside ({ asideCategory, asideSetCategory, asideMaxPrice, asideSetMa
                                 return <li className={"list-group-item p-0 mb-1 " + shopAsideStyles["shop-aside-btn"]} style={{ borderRadius: "10px", fontSize: "14px", transition: "0.3s" }} key={cat} ><NavLink to={`/shop/${cat}`} className={({ isActive }) => {
                                     const isAllDefault = cat === "All" && location.pathname === "/shop";
                                     return `${isActive || isAllDefault ? shopAsideStyles["aside-active"] : ""} px-3 py-2 d-flex align-items-center justify-content-between`;
-                                }} style={{ width: "100%", display: "block", borderRadius: "10px", color: "#888788"}} onClick={() => {asideSetCategory(cat)}}>{cat} <span>{cat == "All" ? products.products.length : products.products.filter(prod => prod.category === cat).length}</span></NavLink></li>
+                                }} style={{ width: "100%", display: "block", borderRadius: "10px", color: "#FFF"}} onClick={() => {asideSetCategory(cat)}}>{cat} <span>{cat == "All" ? products.products.length : products.products.filter(prod => prod.category === cat).length}</span></NavLink></li>
                                 
                             })
                         }

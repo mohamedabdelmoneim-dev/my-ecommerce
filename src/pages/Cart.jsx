@@ -63,7 +63,7 @@ function Cart () {
                                     <Link to="/shop" className={`${cartStyles["continue-shopping"]} d-flex align-items-center gap-2 mb-4`} style={{ color: "#4F5354", fontSize: "14px", width: "fit-content" }}><FaArrowLeftLong /> Continue Shopping</Link>
                                 </div>
                             </div>
-                            <div className="col-lg-3 col-md-12 p-4" style={{ borderRadius: "15px", border: "1px solid #222222", backgroundColor: "#141414", height: "fit-content" }}>
+                            <div className="col-lg-3 col-md-12 col-11 mx-auto p-4" style={{ borderRadius: "15px", border: "1px solid #222222", backgroundColor: "#141414", height: "fit-content" }}>
                                 <div className="d-flex flex-column">
                                     <p className="text-white fw-bold mb-4">Order Summary</p>
                                     <form style={{ backgroundColor: "#202020", borderRadius: "15px", border: "1px solid #252525" }} className={`${cartStyles["cart-promo-form"]} d-flex align-items-center justify-content-between py-2 px-3 mb-3`}>
@@ -101,7 +101,7 @@ function Cart () {
                                             <p className="text-white fw-bold" style={{ fontSize: "1.5rem" }}>${total}</p>
                                         </div>
                                         <div className="d-flex align-items-center justify-content-center mb-4">
-                                            <button onClick={() => navigate("/checkout")} className="scale-hover-btn px-5 py-3 text-white fw-bold" style={{ backgroundColor: "var(--main-color)", borderRadius: "15px" }}>Proceed to Checkout <FaArrowRightLong /></button>
+                                            <button onClick={() => navigate("/checkout")} className="scale-hover-btn px-sm-5 px-4 py-3 text-white fw-bold" style={{ backgroundColor: "var(--main-color)", borderRadius: "15px" }}>Proceed to Checkout <FaArrowRightLong /></button>
                                         </div>
                                         <div className={`d-flex justify-content-evenly align-items-center pb-3 ${cartStyles["order-adv"]}`} style={{ borderBottom: "1px solid #222222" }}>
                                             <div className="d-flex flex-column align-items-center">

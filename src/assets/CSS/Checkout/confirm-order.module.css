@@ -17,3 +17,8 @@
     -ms-transform: scale(1);
     -o-transform: scale(1);
 }
+@media (max-width: 992px) {
+    .confirm-order-info {
+        width: 100% !important;
+    }
+}

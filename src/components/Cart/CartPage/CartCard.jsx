@@ -17,7 +17,7 @@ function CartCard ({ product, status }) {
     return (
         <div className={`cart-card d-flex p-4 mb-4 gap-3 w-100 ${cartCardStyles["cart-card"]}`} style={{ backgroundColor: "#141414", border: "1px solid #222222", borderRadius: "15px" }}>
             <div className={`cart-card-image ${cartCardStyles["cart-card-image"]}`}>
-                <img onClick={() => {navigate('/product', { state: { id: product.id } })}} src={product.thumbnail} alt="" style={{ width: "100%", height: "100%", backgroundColor: "#FFF", borderRadius: "15px", cursor: "pointer" }} />
+                <img onClick={() => {navigate('/product', { state: { id: product.id } })}} src={product.thumbnail} alt="" style={{ width: "100%", height: "100%", maxHeight: "100px", backgroundColor: "#FFF", borderRadius: "15px", cursor: "pointer" }} />
             </div>
             <div className={`d-flex flex-column w-100 ${cartCardStyles["cart-card-details"]}`}>
                 <div className="d-flex w-100 justify-content-between align-items-center mb-1">
@@ -33,7 +33,7 @@ function CartCard ({ product, status }) {
                         <p style={{ color: "#707070", marginBottom: "-1px", fontSize: "12px" }}>Color</p>
                     </div>
                 </div>
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex justify-content-between align-items-center gap-sm-0 gap-2">
                     <div className={`d-flex align-items-center justify-content-evenly ${cartCardStyles["quantity-selector"]}`} style={{ backgroundColor: "#222222", borderRadius: "15px", width: "100px", height: "35px" }}>
                         <button style={{ backgroundColor: "transparent", color: "#FFF" }} onClick={() => cartDispatch({ type: "Decrease", id: product.id })}>-</button>
                         <p className="text-white mb-0 mx-1">{product.quantity}</p>
@@ -41,7 +41,7 @@ function CartCard ({ product, status }) {
                     </div>
                     <div className={`d-flex flex-column align-items-center ${cartCardStyles["price-container"]}`}>
                         <p className="text-white fw-bold mb-0">${(product.quantity * product.price).toFixed(2)}</p>
-                        <p className={`${product.quantity < 2 ? "d-none" : "d-inline-block"} fw-bold mb-0`} style={{ fontSize: "11px", color: "#565A56" }}>${product.price} each</p>
+                        <p className={`${product.quantity < 2 ? "d-none" : "d-inline-block"} fw-bold mb-0 text-center`} style={{ fontSize: "11px", color: "#565A56" }}>${product.price} each</p>
                     </div>
                 </div>
             </div>

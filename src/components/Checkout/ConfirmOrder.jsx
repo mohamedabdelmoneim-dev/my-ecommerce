@@ -25,7 +25,7 @@ function ConfirmOrder () {
         <>
             <div className={confirmOrderStyles["confirm-order"]}>
                 <div className="container text-center d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-                    <div className="d-flex flex-column align-items-center gap-3" style={{ width: "40%" }}>
+                    <div className={`${confirmOrderStyles["confirm-order-info"]} d-flex flex-column align-items-center gap-3`} style={{ width: "40%" }}>
                         <div className="d-flex align-items-center justify-content-center" style={{ backgroundColor: "#00C950", borderRadius: "50%", width: "95px", height: "95px" }}>
                             <FaCheck style={{ color: "#FFF", fontSize: "2.5rem" }} />
                         </div>

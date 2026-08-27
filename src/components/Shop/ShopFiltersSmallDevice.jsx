@@ -1,7 +1,7 @@
 import ProductsContext from "../../contexts/ProductsContext";
 
 import { createPortal } from "react-dom";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { IoClose } from "react-icons/io5";
@@ -17,10 +17,56 @@ import Input from "./Input";
 function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPrice, asideSetMaxPrice, asideRate, asideSetRate, asideSearchBar, handleSearcing, onClose }) {
     const { products } = useContext(ProductsContext);
     const [isClosing, setIsClosing] = useState(false);
+
+    const sheetRef = useRef(null);
+    const dragStartY = useRef(0);
+    const dragCurrentY = useRef(0);
+    const isDragging = useRef(false);
+
     const handleClose = () => {
         setIsClosing(true);
         setTimeout(() => onClose(), 300);
     }
+
+    // ---- Drag to dismiss (Pointer Events: works with touch, mouse, pen) ----
+    const handlePointerDown = (e) => {
+        console.log("Pointer down:", e.clientY);
+        dragStartY.current = e.clientY;
+        isDragging.current = true;
+        e.target.setPointerCapture(e.pointerId);
+        if (sheetRef.current) sheetRef.current.style.transition = "none";
+    };
+
+    const handlePointerMove = (e) => {
+        if (!isDragging.current) return;
+        const diff = e.clientY - dragStartY.current;
+        if (diff > 0) {
+            dragCurrentY.current = diff;
+            requestAnimationFrame(() => {
+                if (sheetRef.current) {
+                    sheetRef.current.style.transform = `translateY(${diff}px)`;
+                }
+            });
+        }
+    };
+
+    const handlePointerUp = () => {
+        if (!isDragging.current || !sheetRef.current) return;
+        isDragging.current = false;
+        sheetRef.current.style.transition = "transform 0.3s ease";
+
+        const threshold = sheetRef.current.offsetHeight * 0.25;
+
+        if (dragCurrentY.current > threshold) {
+            sheetRef.current.style.transform = "translateY(100%)";
+            setTimeout(() => onClose(), 300);
+        } else {
+            sheetRef.current.style.transform = "translateY(0)";
+        }
+        dragCurrentY.current = 0;
+    };
+    // --------------------------------------------------------------------
+
     if (!products) return <div className="d-flex justify-content-center align-items-center w-100">
         <div className="spinner-border" style={{ color: "var(--main-color)" }} role="status">
             <span className="visually-hidden">Loading...</span>
@@ -71,7 +117,18 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
     return createPortal (
         <>
             <div className={`${shopFiltersSmallStyles["shop-filters-overlay"]} ${isClosing ? shopFiltersSmallStyles["closing"] : ""}`} onClick={handleClose}></div>
-            <div className={`${shopFiltersSmallStyles["animate-section"]} ${shopFiltersSmallStyles["shop-filters-small-device"]} position-fixed d-flex flex-column align-items-start px-4 py-4`} style={{ width: "100%",  backgroundColor: "#111111",  border: "1px solid #2F2F2F",  borderRadius: "15px",  zIndex: 9999,  bottom: 0,  left: 0,  height: "85vh",  animationName: isClosing ? shopFiltersSmallStyles["slideUpOut"] : shopFiltersSmallStyles["slideUp"], animationDuration: "0.3s", animationTimingFunction: "ease", animationFillMode: isClosing ? "forwards" : "none" }}>
+            <div ref={sheetRef} className={`${shopFiltersSmallStyles["animate-section"]} ${shopFiltersSmallStyles["shop-filters-small-device"]} position-fixed d-flex flex-column align-items-start px-4 py-4`} style={{ width: "100%",  backgroundColor: "#111111",  border: "1px solid #2F2F2F",  borderRadius: "15px",  zIndex: 9999,  bottom: 0,  left: 0,  height: "85vh",  animationName: isClosing ? shopFiltersSmallStyles["slideUpOut"] : shopFiltersSmallStyles["slideUp"], animationDuration: "0.3s", animationTimingFunction: "ease", animationFillMode: isClosing ? "forwards" : "none" }}>
+                
+                {/* Drag Handle */}
+                <div
+                    onPointerDown={handlePointerDown}
+                    onPointerMove={handlePointerMove}
+                    onPointerUp={handlePointerUp}
+                    style={{ width: "100%", display: "flex", justifyContent: "center", padding: "4px 0 12px", touchAction: "none", cursor: "grab" }}
+                >
+                    <span style={{ width: "40px", height: "5px", borderRadius: "10px", backgroundColor: "#3A3A3A" }}></span>
+                </div>
+
                 <div className={`${shopFiltersSmallStyles["animate-section"]} d-flex align-items-center justify-content-between w-100`}>
                     <h5 className="text-white mb-0 fw-bold">Filters</h5>
                     <button className="" onClick={handleClose} style={{ backgroundColor: "#242424", borderRadius: "12px", padding: "5px 8px", border: "none" }}>

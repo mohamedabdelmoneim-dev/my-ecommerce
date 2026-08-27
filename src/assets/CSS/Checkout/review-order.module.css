@@ -3,3 +3,12 @@
     font-size: 12.5px;
     color: #83898A;
 }
+@media (max-width: 992px) {
+    .review-info {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    .review-item {
+        width: 100% !important;
+    }
+}
