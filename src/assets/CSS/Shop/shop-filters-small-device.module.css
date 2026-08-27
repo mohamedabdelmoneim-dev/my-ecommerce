@@ -66,8 +66,24 @@
     z-index: 1;
     color: #FFF !important;
     padding: 10px 0;
+    width: 25%;
 }
 .apply-filters-btn::before {
     display: none;
 }
-
+.clear-filters {
+    width: 25%;
+}
+ @media (max-width: 1024px) {
+    .apply-filters-btn,
+    .clear-filters {
+        width: 50%;
+    }
+    
+ }
+@media (max-width: 670px) {
+    .apply-filters-btn,
+    .clear-filters {
+        width: 100%;
+    }
+}

@@ -79,12 +79,25 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
         return true;
     }) : "";
     const categories = ["All", ...unique.map(prod => prod.category)];
+    const searchLower = asideSearchBar.toLowerCase();
+
+    const searchMatchesCategory = products.products.some(p =>
+        p.category.toLowerCase().includes(searchLower)
+    );
+
     const filteredProducts = products.products.filter(product => {
         const categoryMatch = asideCategory === "All" || product.category === asideCategory;
         const priceMatch = product.price <= asideMaxPrice;
         const rateMatch = asideRate === 0 || product.rating >= asideRate;
-        const searchMatch = asideSearchBar === "" ||
-            product.title.toLowerCase().includes(asideSearchBar.toLowerCase());
+
+        let searchMatch;
+        if (asideSearchBar === "") {
+            searchMatch = true;
+        } else if (searchMatchesCategory) {
+            searchMatch = product.category.toLowerCase().includes(searchLower);
+        } else {
+            searchMatch = product.title.toLowerCase().includes(searchLower);
+        }
 
         return categoryMatch && priceMatch && rateMatch && searchMatch;
     });
@@ -138,7 +151,7 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
                 <div className={`${shopFiltersSmallStyles["animate-section"]} mt-4 w-100`}>
                     <label htmlFor="search" className={`${inputStyles["search-label"]} form-label text-white fw-bold`}>Search</label>
                     <div>
-                        <Input />
+                        <Input handleSearcing={handleSearcing} />
                     </div>
                 </div>
                 <div className={`${asideShopStyles["animate-section"]} mt-4 w-100`}>
@@ -146,7 +159,7 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
                     <ul className="ps-0" style={{ width: "100%" }}>
                         {
                             categories.map(cat => {
-                                return <li className={`list-group-item p-0 mb-1 ${asideShopStyles["shop-aside-btn"]}`} style={{ borderRadius: "10px", fontSize: "14px", transition: "0.3s" }}><NavLink to={`/shop/${cat}`} className={({ isActive }) => {
+                                return <li key={cat} onClick={() => setIsClosing(true)} className={`list-group-item p-0 mb-1 ${asideShopStyles["shop-aside-btn"]}`} style={{ borderRadius: "10px", fontSize: "14px", transition: "0.3s" }}><NavLink to={`/shop/${cat}`} className={({ isActive }) => {
                                     const isAllDefault = cat === "All" && location.pathname === "/shop";
                                     return `${isActive || isAllDefault ? asideShopStyles["aside-active"] : ""} px-3 py-2 d-flex align-items-center justify-content-between`;
                                 }} style={{ width: "100%", display: "block", borderRadius: "10px", color: "#888788"}} onClick={() => {asideSetCategory(cat)}}>{cat} <span>{cat == "All" ? products.products.length : products.products.filter(prod => prod.category === cat).length}</span></NavLink></li>
@@ -167,22 +180,22 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
                         Min Rating
                     </p>
                     <div className={asideRadioStyles["radio-container"]}>
-                        <input type="radio" name="rating" id="rate-0" value={0} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 0} />
-                        <label htmlFor="rate-0" className="d-flex gap-2 align-items-center">All</label>
+                        <input type="radio" name="rating" id="rate-0" value={0} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 0}  />
+                        <label onClick={() => setIsClosing(true)} htmlFor="rate-0" className="d-flex gap-2 align-items-center">All</label>
 
-                        <input type="radio" name="rating" id="rate-1" value={1} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 1} />
-                        <label htmlFor="rate-1" className="d-flex gap-2 align-items-center">1+ <FaStar style={{ fill: "gold", fontSize: "15px" }} /></label>
+                        <input type="radio" name="rating" id="rate-1" value={1} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 1}  />
+                        <label onClick={() => setIsClosing(true)} htmlFor="rate-1" className="d-flex gap-2 align-items-center">1+ <FaStar style={{ fill: "gold", fontSize: "15px" }} /></label>
 
-                        <input type="radio" name="rating" id="rate-2" value={2} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 2} />
-                        <label htmlFor="rate-2" className="d-flex gap-2 align-items-center">2+
+                        <input type="radio" name="rating" id="rate-2" value={2} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 2}  />
+                        <label onClick={() => setIsClosing(true)} htmlFor="rate-2" className="d-flex gap-2 align-items-center">2+
                             <div>
                                 <FaStar style={{ fill: "gold", fontSize: "15px" }} />
                                 <FaStar style={{ fill: "gold", fontSize: "15px" }} />
                             </div>
                         </label>
 
-                        <input type="radio" name="rating" id="rate-3" value={3} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 3} />
-                        <label htmlFor="rate-3" className="d-flex gap-2 align-items-center">3+
+                        <input type="radio" name="rating" id="rate-3" value={3} onChange={(e) => {asideSetRate(Number(e.target.value))}} checked={asideRate === 3}  />
+                        <label onClick={() => setIsClosing(true)} htmlFor="rate-3" className="d-flex gap-2 align-items-center">3+
                             <div>
                                 <FaStar style={{ fill: "gold", fontSize: "15px" }} />
                                 <FaStar style={{ fill: "gold", fontSize: "15px" }} />
@@ -195,12 +208,12 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
                     </div>
                 </div>
                 {
-                    filteredProducts.length && asideCategory !== "All" &&  <div className="w-100 text-center"><button className={`${shopFiltersSmallStyles["apply-filters-btn"]} mt-4 w-25 text-center fw-bold`} style={{ backgroundColor: "var(--main-color)", borderRadius: "15px" }}>Apply results ({filteredProducts.length})</button></div>
+                    filteredProducts.length && asideCategory !== "All" &&  <div className="w-100 text-center"><button className={`${shopFiltersSmallStyles["apply-filters-btn"]} mt-4 text-center fw-bold`} style={{ backgroundColor: "var(--main-color)", borderRadius: "15px" }}>Apply results ({filteredProducts.length})</button></div>
                 }
                 {
                     ((asideCategory !== "All" || asideMaxPrice !== 36990 || asideRate !== 0) && filterCounter > 0) && 
                     <div className="w-100 text-center mt-3">
-                        <button className={`${shopFiltersSmallStyles["clear-filters"]} w-25 text-center py-2`} style={{ color: "var(--main-color)", backgroundColor: "#111111", border: "1px solid #592217", borderRadius: "15px", fontSize: "14px" }} onClick={asideClearFilters}>
+                        <button className={`${shopFiltersSmallStyles["clear-filters"]} text-center py-2`} style={{ color: "var(--main-color)", backgroundColor: "#111111", border: "1px solid #592217", borderRadius: "15px", fontSize: "14px" }} onClick={asideClearFilters}>
                             Clear Filters ({filterCounter})
                         </button>
                     </div>
