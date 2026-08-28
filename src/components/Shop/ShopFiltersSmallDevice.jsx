@@ -151,7 +151,7 @@ function ShopFiltersSmallDevice ({ asideCategory, asideSetCategory, asideMaxPric
                 <div className={`${shopFiltersSmallStyles["animate-section"]} mt-4 w-100`}>
                     <label htmlFor="search" className={`${inputStyles["search-label"]} form-label text-white fw-bold`}>Search</label>
                     <div>
-                        <Input handleSearcing={handleSearcing} />
+                        <Input asideSearchBar={asideSearchBar} handleSearcing={handleSearcing} onSearchSubmit={handleClose} />
                     </div>
                 </div>
                 <div className={`${asideShopStyles["animate-section"]} mt-4 w-100`}>

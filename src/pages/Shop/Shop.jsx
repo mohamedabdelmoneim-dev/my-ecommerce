@@ -79,7 +79,8 @@ function Shop () {
     }, [products]);
     
     const handleSearcing = (value) => {
-        setSearch (value)
+        setSearch (value);
+        
     }
     const sortOptions = ["Featured", "Newest", "Price: Low to High", "Price: High to Low", "Top Rated", "Best Discount"];
 
