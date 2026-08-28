@@ -42,7 +42,7 @@ const routes = createBrowserRouter([{
         { path: '/confirm-order', element: <ConfirmOrder /> },
     ],
 },], {
-    basename: "/my-ecommerce",
+    basename: import.meta.env.BASE_URL,
 });
 
 export default routes;
