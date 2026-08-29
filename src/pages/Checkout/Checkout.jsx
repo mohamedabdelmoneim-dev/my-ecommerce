@@ -120,10 +120,10 @@ function Checkout() {
                                             <div className={`${checkoutStyles["checkout-info"]} d-flex flex-row justify-content-between align-items-center mt-5`}>
                                                 {
                                                     ActiveComponent == CheckoutSteps[0].Component
-                                                    ? <button onClick={() => navigate('/cart')} className={`${checkoutStyles["back-btn"]} btn fw-bold d-flex align-items-center gap-2`} style={{ color: "#5C5C5C", width: "fit-content", height: "fit-content", fontSize: "16px" }}><FaArrowLeft /> Back to Cart</button>
+                                                    ? <button type="button" onClick={() => navigate('/cart')} className={`${checkoutStyles["back-btn"]} btn fw-bold d-flex align-items-center gap-2`} style={{ color: "#5C5C5C", width: "fit-content", height: "fit-content", fontSize: "16px" }}><FaArrowLeft /> Back to Cart</button>
                                                     : ActiveComponent == CheckoutSteps[1].Component
-                                                    ? <button onClick={() => setCurrentStep(1)} className={`${checkoutStyles["back-btn"]} btn fw-bold d-flex align-items-center gap-2`} style={{ color: "#5C5C5C", width: "fit-content", height: "fit-content", fontSize: "16px" }}><FaArrowLeft /> Back</button>
-                                                    : <button onClick={() => setCurrentStep(2)} className={`${checkoutStyles["back-btn"]} btn fw-bold d-flex align-items-center gap-2`} style={{ color: "#5C5C5C", width: "fit-content", height: "fit-content", fontSize: "16px" }}><FaArrowLeft /> Back</button>
+                                                    ? <button type="button" onClick={() => setCurrentStep(1)} className={`${checkoutStyles["back-btn"]} btn fw-bold d-flex align-items-center gap-2`} style={{ color: "#5C5C5C", width: "fit-content", height: "fit-content", fontSize: "16px" }}><FaArrowLeft /> Back</button>
+                                                    : <button type="button" onClick={() => setCurrentStep(2)} className={`${checkoutStyles["back-btn"]} btn fw-bold d-flex align-items-center gap-2`} style={{ color: "#5C5C5C", width: "fit-content", height: "fit-content", fontSize: "16px" }}><FaArrowLeft /> Back</button>
                                                 }
                                                 
                                                 {

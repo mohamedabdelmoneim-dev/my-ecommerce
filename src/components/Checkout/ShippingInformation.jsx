@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { BsTruck } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
@@ -45,7 +45,28 @@ function ShippingInformation({ shippingSelected, setShippingSelected }) {
         
         return () => observer.disconnect();
     },[])
-    
+    const [formData, setFormData] = useState(
+        localStorage.getItem("shippingInfo") 
+        ? JSON.parse(localStorage.getItem("shippingInfo")) 
+        : {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            street: "",
+            city: "",
+            state: "",
+            zip: "",
+            country: countries[0]
+        }
+    );
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+    useEffect(() => {
+        localStorage.setItem("shippingInfo", JSON.stringify(formData));
+    }, [formData])
     return(
         <div className={`${shippingInformationStyles["shipping-information"]} mb-5 animate-section`}>
             <div className="d-flex align-items-center gap-2 mb-3">
@@ -56,14 +77,14 @@ function ShippingInformation({ shippingSelected, setShippingSelected }) {
                 <div className={`${shippingInformationStyles["shipping-information-form"]} row g-3 needs-validation`}>
                     <div className="col-md-6">
                         <label for="validationCustom01" className="form-label">First name</label>
-                        <input type="text" className="form-control" id="validationCustom01" placeholder="John" required />
+                        <input type="text" className="form-control" id="validationCustom01" placeholder="John" name="firstName" value={formData.firstName} onChange={handleInputChange} required />
                         <div className="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div className="col-md-6">
                         <label for="validationCustom02" className="form-label">Last name</label>
-                        <input type="text" className="form-control" id="validationCustom02" placeholder="Doe" required />
+                        <input type="text" className="form-control" id="validationCustom02" placeholder="Doe" name="lastName" value={formData.lastName} onChange={handleInputChange} required />
                         <div className="valid-feedback">
                             Looks good!
                         </div>
@@ -71,7 +92,7 @@ function ShippingInformation({ shippingSelected, setShippingSelected }) {
                     <div className="col-md-12">
                         <label for="validationCustomUsername" className="form-label">Email Address</label>
                         <div className="input-group has-validation">
-                            <input type="email" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="john@example.com" required />
+                            <input type="email" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" placeholder="john@example.com" name="email" value={formData.email} onChange={handleInputChange} required />
                             <div className="invalid-feedback">
                                 Please Enter Your Email
                             </div>
@@ -79,42 +100,42 @@ function ShippingInformation({ shippingSelected, setShippingSelected }) {
                     </div>
                     <div className="col-md-12">
                         <label for="validationCustom02" className="form-label">Phone Number</label>
-                        <input type="tel" className="form-control" id="validationCustom02" placeholder="+1 (555) 000-0000" required />
+                        <input type="tel" className="form-control" id="validationCustom02" placeholder="+1 (555) 000-0000" name="phone" value={formData.phone} onChange={handleInputChange} required />
                         <div className="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div className="col-md-12">
                         <label for="validationCustom03" className="form-label">Street Address</label>
-                        <input type="text" className="form-control" id="validationCustom03" placeholder="123 Main Street, Apt 4" required />
+                        <input type="text" className="form-control" id="validationCustom03" placeholder="123 Main Street, Apt 4" name="street" value={formData.street} onChange={handleInputChange} required />
                         <div className="invalid-feedback">
                             Please provide a valid Street Address.
                         </div>
                     </div>
                     <div className="col-md-6">
                         <label for="validationCustom03" className="form-label">City</label>
-                        <input type="text" className="form-control" id="validationCustom03" placeholder="New York" required />
+                        <input type="text" className="form-control" id="validationCustom03" placeholder="New York" name="city" value={formData.city} onChange={handleInputChange} required />
                         <div className="invalid-feedback">
                             Please provide a valid city.
                         </div>
                     </div>
                     <div className="col-md-6">
                         <label for="validationCustom03" className="form-label">State / Province</label>
-                        <input type="text" className="form-control" id="validationCustom03" placeholder="NY" required />
+                        <input type="text" className="form-control" id="validationCustom03" placeholder="NY" name="state" value={formData.state} onChange={handleInputChange} required />
                         <div className="invalid-feedback">
                             Please provide a valid state.
                         </div>
                     </div>
                     <div className="col-md-6">
                         <label for="validationCustom05" className="form-label">Zip</label>
-                        <input type="text" className="form-control" id="validationCustom05" placeholder="10001" required />
+                        <input type="text" className="form-control" id="validationCustom05" placeholder="10001" name="zip" value={formData.zip} onChange={handleInputChange} required />
                         <div className="invalid-feedback">
                             Please provide a valid zip.
                         </div>
                     </div>
                     <div className="col-md-12">
                         <label for="validationCustom04" className="form-label">Country</label>
-                        <select className="form-select" id="validationCustom04" required>
+                        <select className="form-select" id="validationCustom04" name="country" value={formData.country} onChange={handleInputChange} required>
                             {countries.map(country => <option>{country}</option>)}
                         </select>
                         <div className="invalid-feedback">

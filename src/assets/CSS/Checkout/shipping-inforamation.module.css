@@ -148,3 +148,10 @@ form select:focus {
     border-width: 0 2px 2px 0;
     transform: translate(-50%, -60%) rotate(45deg);
 }
+
+.shipping-information-form input {
+    color: #FFF;
+}
+.shipping-information-form input:focus {
+    color: #FFF;
+}
