@@ -115,12 +115,12 @@ function Home() {
     return (
         <>
             <div className={`${homeStyles["hero-section"]} animate-section`} style={{background: `url(${back} center center/cover no-repeat`, maxWidth: "100%"}}>
-                <div className="container" style={{ position: 'relative' }} >
+                <div className="container animate-section" style={{ position: 'relative' }} >
                     <div className='w-25'>
                         <p className={`${homeStyles["new-season"]} py-1 fw-bold text-center`}><LuSparkles /> NEW SEASON 2026</p>
                     </div>
-                    <div className='d-flex justify-content-center justify-content-md-start flex-start row '>
-                        <div className='col-lg-6 col-12' style={{ fontFamily: 'Pretendard, sans-serif' }}>
+                    <div className='d-flex justify-content-center justify-content-md-start flex-start row'>
+                        <div className='col-lg-6 col-12 animate-section' style={{ fontFamily: 'Pretendard, sans-serif' }}>
                             <h1 className={`${homeStyles["hero-header"]} text-white mb-3 `}>Discover <span className={homeStyles["gradient-text"]} >Premium</span> Products<span className={homeStyles["dot"]}></span></h1>
                             <p className='w-sm-75 w-100' style={{ color: "var(--text-color)", fontSize: '1.25rem' }}>Curated collection of luxury electronics, fashion, and lifestyle essentials for the discerning individual.</p>
                             <div className='d-flex flex-lg-row flex-column gap-3 mt-5'>
