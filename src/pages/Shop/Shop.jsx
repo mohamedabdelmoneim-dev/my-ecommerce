@@ -38,27 +38,25 @@ function Shop () {
         if (!products) return;
 
         const searchLower = search.toLowerCase();
-        const searchMatchesCategory = search !== "" && products.products.some(p =>
-            p.category.toLowerCase().includes(searchLower)
-        );
 
-        let filteredProducts = products.products.filter(product => {
-            const categoryMatch = asideCategory === "All" || product.category === asideCategory;
-            const priceMatch = product.price <= maxPrice;
-            const rateMatch = asideRate === 0 || product.rating >= asideRate;
+            const splitByDash = (str) => str.includes("-") ? str.split("-") : [str];
 
-            let searchMatch;
-            if (search === "") {
-                searchMatch = true;
-            } else if (searchMatchesCategory) {
-                searchMatch = product.category.toLowerCase().includes(searchLower);
-            } else {
-                searchMatch = product.title.toLowerCase().includes(searchLower);
-            }
+            const categoryMatchesSearch = (category) => {
+                const catWords = splitByDash(category.toLowerCase());
+                return catWords.some(word => word.startsWith(searchLower));
+            };
 
-            return categoryMatch && priceMatch && rateMatch && searchMatch;
-        });
+            let filteredProducts = products.products.filter(product => {
+                const categoryMatch = asideCategory === "All" || product.category === asideCategory;
+                const priceMatch = product.price <= maxPrice;
+                const rateMatch = asideRate === 0 || product.rating >= asideRate;
 
+                const searchMatch = search === "" ||
+                    product.title.toLowerCase().includes(searchLower) ||
+                    categoryMatchesSearch(product.category);
+
+                return categoryMatch && priceMatch && rateMatch && searchMatch;
+            });
         if (sortBy === "Price: Low to High") {filteredProducts = [...filteredProducts].sort((a, b) => a.price - b.price)};
         if (sortBy === "Price: High to Low") {filteredProducts = [...filteredProducts].sort((a, b) => b.price - a.price)};
         if (sortBy === "Top Rated") {filteredProducts = [...filteredProducts].sort((a, b) => b.rating - a.rating)};
