@@ -114,7 +114,7 @@ function Home() {
     
     return (
         <>
-            <div className={`${homeStyles["hero-section"]} animate-section`} style={{background: `url(${back} center center/cover no-repeat`, maxWidth: "100%"}}>
+            <div className={`${homeStyles["hero-section"]} animate-section`} style={{background: `url(${back} center center/cover no-repeat)`, maxWidth: "100%"}}>
                 <div className="container animate-section" style={{ position: 'relative' }} >
                     <div className='w-25'>
                         <p className={`${homeStyles["new-season"]} py-1 fw-bold text-center`}><LuSparkles /> NEW SEASON 2026</p>
