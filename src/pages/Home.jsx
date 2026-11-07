@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 import { useRef, useEffect, useContext } from 'react';
 
 
-import back from "../assets/images/hero_section.webp"
+import back from "../assets/images/hero_section.png"
 import firstCat from "../assets/images/categories/category_01.png";
 import secCat from "../assets/images/categories/category_02.png";
 import thirdCat from "../assets/images/categories/category_03.png";

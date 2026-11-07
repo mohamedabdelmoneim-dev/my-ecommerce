@@ -113,7 +113,9 @@ header :global(.dropdown-menu) li a {
 .search-icon-small:hover {
     background-color: #66666645;
 }
-
+.nav-search:hover {
+    background-color: #66666645 !important;
+}
 
 @media (max-width: 991px) {
     .links :global(.dropdown-menu) {
